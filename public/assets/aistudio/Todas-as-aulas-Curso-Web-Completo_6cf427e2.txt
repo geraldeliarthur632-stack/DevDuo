@@ -1,0 +1,2163 @@
+CURSO WEB COMPLETO — CONTEÚDO DE TODAS AS AULAS
+Extraído do arquivo Curso-Web-Completo.html enviado pelo usuário.
+
+INSTRUÇÕES PARA O STUDIO AI
+Use este documento como fonte obrigatória para montar todas as aulas do curso. Não invente, apague, resuma ou substitua o conteúdo existente. Preserve os nomes dos módulos, a ordem, as explicações, os tópicos, os exemplos de código, as atividades e as perguntas. Se precisar melhorar a apresentação, faça isso sem alterar o sentido técnico.
+
+PADRÃO VISUAL E DIDÁTICO OBRIGATÓRIO PARA TODAS AS AULAS
+1. Mostrar o nome do módulo e o número/nome da aula.
+2. Mostrar a seção “Para que serve este módulo”, com a explicação geral do módulo.
+3. Mostrar “O que você vai aprender”, com todos os tópicos do módulo.
+4. Mostrar “Exemplo rápido”, mantendo o código original em bloco de código formatado e legível.
+5. Mostrar cada aula individual com título, explicação clara para iniciantes e seu exemplo de código correspondente.
+6. Mostrar “Exercício prático” com a atividade original do módulo.
+7. Mostrar “Quiz — teste o que aprendeu”, com todas as perguntas e alternativas. Informar se a resposta está correta e permitir tentar novamente.
+8. Permitir marcar o módulo como concluído, acompanhar o progresso e navegar para a aula anterior e a próxima aula.
+9. Manter o mesmo padrão de espaçamento, títulos, cartões e blocos de código em todos os módulos. Não deixar módulos com estrutura incompleta.
+10. Não criar aulas fictícias para preencher lacunas. Quando o arquivo não trouxer uma explicação, exercício ou quiz, sinalizar isso e manter o que existe.
+
+TOTAL DE MÓDULOS ENCONTRADOS: 19
+
+==============================================================================
+MÓDULO 1: Como um site funciona
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Todo site tem três camadas: front-end (o que aparece no navegador), back-end (o servidor, que aplica regras e processa pedidos) e banco de dados (onde a informação fica guardada). Cada linguagem deste curso atua em uma dessas camadas. Entender isso evita muita confusão no começo.
+
+O QUE VOCÊ VAI APRENDER
+- Cliente e servidor: o navegador pede, o servidor responde (protocolo HTTP)
+- Front-end: HTML + CSS + JavaScript
+- Back-end: Python, PHP e Node.js
+- Banco de dados: SQL
+- Domínio, hospedagem e HTTPS
+
+EXEMPLO RÁPIDO
+```
+Navegador  → pede https://meusite.com/cursos
+Servidor   → (Python/PHP) recebe o pedido
+Banco      → (SQL) devolve a lista de cursos
+Servidor   → monta o HTML ou JSON e responde
+Navegador  → (HTML+CSS+JS) mostra a página
+```
+
+AULAS INDIVIDUAIS (3 aulas)
+
+AULA 1: Cliente, servidor e HTTP
+O navegador (cliente) envia um pedido HTTP e o servidor devolve uma resposta com um código: 200 (ok), 404 (não encontrado) ou 500 (erro no servidor). Métodos comuns: GET para ler e POST para enviar dados. Isso é a base de toda a web.
+
+EXEMPLO DE CÓDIGO
+```
+GET /cursos HTTP/1.1
+Host: meusite.com
+
+HTTP/1.1 200 OK
+Content-Type: text/html
+```
+
+AULA 2: Front-end, back-end e banco
+O front-end é o que o usuário vê (HTML, CSS, JS). O back-end (Python, PHP, Node) guarda as regras e a segurança. O banco (SQL) guarda os dados. O front-end nunca deve acessar o banco direto — sempre passa pelo back-end.
+
+EXEMPLO DE CÓDIGO
+```
+Front (JS) --fetch--> API (Python/PHP) --SQL--> Banco
+```
+
+AULA 3: Domínio, hospedagem e HTTPS
+O domínio é o endereço (ex: meusite.com), a hospedagem é o computador que guarda o site e o HTTPS criptografa a conexão (o cadeado no navegador). Para sites estáticos existem hospedagens gratuitas, como GitHub Pages e Netlify.
+
+EXEMPLO DE CÓDIGO
+```
+meusite.com -> DNS -> IP do servidor -> https (cadeado)
+```
+
+EXERCÍCIO PRÁTICO
+Abra qualquer site, clique com o botão direito em Inspecionar e veja o HTML e o CSS dele. Não precisa entender tudo agora — só observe a estrutura.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual código HTTP indica página não encontrada?
+A) 200
+B) 404
+C) 500
+GABARITO: B
+
+==============================================================================
+MÓDULO 2: HTML
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Define a estrutura e o conteúdo da página: títulos, textos, imagens, links, listas, tabelas e formulários. É o esqueleto do site: sem HTML não existe página. Também ajuda o Google e leitores de tela a entender o conteúdo (acessibilidade e SEO).
+
+O QUE VOCÊ VAI APRENDER
+- Tags e atributos
+- Semântica: header, nav, main, section, footer
+- Links e imagens (a, img, alt)
+- Listas e tabelas
+- Formulários: form, input, button
+- Acessibilidade e SEO: title, meta, alt
+
+EXEMPLO RÁPIDO
+```
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><title>Minha página</title></head>
+<body>
+  <h1>Olá, mundo!</h1>
+  <a href="contato.html">Contato</a>
+</body>
+</html>
+```
+
+AULAS INDIVIDUAIS (5 aulas)
+
+AULA 1: Estrutura e texto
+Toda página começa com doctype, html, head (informações invisíveis) e body (o que aparece). Use h1 a h6 para títulos, com apenas um h1 por página, p para parágrafos, strong para ênfase e br para quebra de linha.
+
+EXEMPLO DE CÓDIGO
+```
+<body>
+  <h1>Meu blog</h1>
+  <p>Texto com <strong>destaque</strong>.</p>
+</body>
+```
+
+AULA 2: Links, imagens e listas
+O atributo href do link define o destino. O src da imagem define o arquivo, e o alt descreve a imagem para leitores de tela e para o Google. ul cria listas com marcadores, ol cria listas numeradas, e cada item vai dentro de li.
+
+EXEMPLO DE CÓDIGO
+```
+<a href='https://exemplo.com'>Visitar</a>
+<img src='foto.jpg' alt='Minha foto'>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
+```
+
+AULA 3: Semântica e organização
+Em vez de usar só div, use header, nav, main, section, article e footer. Isso melhora a acessibilidade, ajuda o SEO e deixa o código mais fácil de ler e manter.
+
+EXEMPLO DE CÓDIGO
+```
+<header><nav>Menu</nav></header>
+<main>
+  <article><h2>Meu post</h2></article>
+</main>
+<footer>Meu site 2026</footer>
+```
+
+AULA 4: Formulários
+O form agrupa os campos e envia os dados ao servidor (action) pelo method GET ou POST. Cada input precisa de um label ligado pelo atributo for e de um name, que é a chave dos dados enviados. Tipos comuns: text, email, password, checkbox e submit.
+
+EXEMPLO DE CÓDIGO
+```
+<form action='/enviar' method='post'>
+  <label for='em'>E-mail</label>
+  <input id='em' name='email' type='email' required>
+  <button type='submit'>Enviar</button>
+</form>
+```
+
+AULA 5: Mídia, acessibilidade e SEO
+Use video e audio com controls, picture e srcset para imagens responsivas, aria-label em botões sem texto, e meta description e Open Graph para o Google e as redes sociais. Um bom HTML semântico já resolve boa parte do SEO.
+
+EXEMPLO DE CÓDIGO
+```
+<video controls src='aula.mp4'></video>
+<img srcset='p.jpg 480w, g.jpg 1200w' sizes='100vw' alt='Capa'>
+<button aria-label='Fechar'>X</button>
+<meta name='description' content='Curso de web'>
+```
+
+EXERCÍCIO PRÁTICO
+Crie uma página de apresentação pessoal com título, uma foto (ou placeholder), lista de hobbies e um link. Salve como index.html e abra no navegador.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual tag define o título principal da página?
+A) <p>
+B) <h1>
+C) <head>
+GABARITO: B
+
+PERGUNTA 2: Para que serve o atributo alt de uma imagem?
+A) Mudar o tamanho
+B) Descrever a imagem para leitores de tela e Google
+C) Criar um link
+GABARITO: B
+
+==============================================================================
+MÓDULO 3: CSS
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Controla toda a aparência: cores, fontes, espaçamentos, posicionamento e animações. Também faz o site se adaptar a celular, tablet e computador (design responsivo) e ao modo escuro. HTML é o conteúdo; CSS é o visual.
+
+O QUE VOCÊ VAI APRENDER
+- Seletores: tag, classe e id
+- Box model: margin, padding, border
+- Flexbox e Grid para layouts
+- Media queries (responsivo)
+- Variáveis CSS e modo escuro
+- Transições e animações
+
+EXEMPLO RÁPIDO
+```
+.card{
+  display:flex; gap:1rem;
+  padding:16px; border-radius:12px;
+  background:#fff;
+}
+@media (max-width:600px){
+  .card{flex-direction:column}
+}
+```
+
+AULAS INDIVIDUAIS (5 aulas)
+
+AULA 1: Seletores e cores
+O seletor escolhe quais elementos recebem o estilo: tag (p), classe (.destaque) ou id (#topo). As cores podem ser nomes, hexadecimal (#4f46e5) ou rgb. A cascata decide quem vence: o id pesa mais que a classe, e a classe pesa mais que a tag.
+
+EXEMPLO DE CÓDIGO
+```
+p{color:#333}
+.destaque{background:yellow}
+#topo{font-size:2rem}
+```
+
+AULA 2: Box model
+Todo elemento é uma caixa formada por conteúdo, padding (espaço interno), border (borda) e margin (espaço externo). Com box-sizing: border-box a largura já inclui padding e borda, o que facilita os cálculos.
+
+EXEMPLO DE CÓDIGO
+```
+*{box-sizing:border-box}
+.caixa{
+  width:300px; padding:16px;
+  border:1px solid #ccc; margin:20px auto;
+}
+```
+
+AULA 3: Flexbox e Grid
+O Flexbox organiza itens em uma direção (linha ou coluna) e é ideal para menus e cartões. O Grid organiza em linhas e colunas ao mesmo tempo, ideal para a página inteira ou para galerias.
+
+EXEMPLO DE CÓDIGO
+```
+.menu{display:flex; justify-content:space-between}
+.galeria{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+```
+
+AULA 4: Responsivo e modo escuro
+As media queries aplicam estilos conforme a tela. Comece pelo celular e amplie para telas maiores (mobile-first). As variáveis CSS (--cor) permitem trocar o tema inteiro, inclusive com prefers-color-scheme.
+
+EXEMPLO DE CÓDIGO
+```
+:root{--bg:#fff; --tx:#111}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#111; --tx:#eee}
+}
+body{background:var(--bg); color:var(--tx)}
+```
+
+AULA 5: Posicionamento, transições e animações
+position (relative, absolute, fixed, sticky) controla onde o elemento fica, e z-index decide quem aparece na frente. transition suaviza mudanças e @keyframes cria animações; prefira animar transform e opacity, que são mais rápidos, e respeite prefers-reduced-motion.
+
+EXEMPLO DE CÓDIGO
+```
+.btn{transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+@keyframes pulso{50%{opacity:.5}}
+.alerta{animation:pulso 1s infinite}
+@media (prefers-reduced-motion:reduce){.alerta{animation:none}}
+```
+
+EXERCÍCIO PRÁTICO
+Estilize sua página de apresentação e deixe-a bonita no celular. Use Flexbox ou Grid e teste redimensionando a janela do navegador.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual propriedade ativa o Flexbox?
+A) display:flex
+B) flex:none
+C) position:flex
+GABARITO: A
+
+PERGUNTA 2: Qual é a ordem do box model, de dentro para fora?
+A) margin, border, padding, conteúdo
+B) conteúdo, padding, border, margin
+C) padding, conteúdo, margin, border
+GABARITO: B
+
+==============================================================================
+MÓDULO 4: JavaScript
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Dá vida à página: reage a cliques, valida formulários, atualiza o conteúdo sem recarregar e busca dados de servidores (APIs). Roda no navegador e, com Node.js, também no servidor. É a linguagem mais importante da web hoje.
+
+O QUE VOCÊ VAI APRENDER
+- Variáveis, tipos e operadores
+- Condições e laços
+- Funções
+- DOM: document.querySelector
+- Eventos: click, input, submit
+- fetch, JSON e async/await
+
+EXEMPLO RÁPIDO
+```
+const btn = document.querySelector("#btn");
+btn.addEventListener("click", () => {
+  document.querySelector("h1").textContent = "Você clicou!";
+});
+```
+
+AULAS INDIVIDUAIS (8 aulas)
+
+AULA 1: Variáveis e tipos
+Use const para valores que não mudam e let para os que mudam; evite var. Os tipos principais são string, number, boolean, array e object. No começo, console.log é seu melhor amigo para testar.
+
+EXEMPLO DE CÓDIGO
+```
+const nome = 'Ana';
+let idade = 20;
+const aluno = { nome, notas: [8, 9] };
+console.log(nome + ' tem ' + idade + ' anos');
+```
+
+AULA 2: Condições, laços e funções
+if/else decide caminhos, e for e forEach repetem ações. Funções agrupam código reutilizável, e as arrow functions (=>) são a forma curta de escrevê-las.
+
+EXEMPLO DE CÓDIGO
+```
+const media = (a) => a.reduce((s, n) => s + n, 0) / a.length;
+if (media([8, 9]) >= 7) console.log('Aprovado');
+[1, 2, 3].forEach(n => console.log(n * 2));
+```
+
+AULA 3: DOM e eventos
+O DOM é a página vista como objetos. Com querySelector você pega um elemento, e com addEventListener ou onclick reage às ações do usuário, mudando textos, classes ou criando elementos novos.
+
+EXEMPLO DE CÓDIGO
+```
+const lista = document.querySelector('#lista');
+document.querySelector('#add').onclick = () => {
+  const li = document.createElement('li');
+  li.textContent = 'Novo item';
+  lista.append(li);
+};
+```
+
+AULA 4: fetch e async/await
+fetch busca dados de uma API pela internet. Com async/await o código espera a resposta sem travar a página, e try/catch trata erros de rede.
+
+EXEMPLO DE CÓDIGO
+```
+async function carregar() {
+  try {
+    const r = await fetch('https://api.exemplo.com/cursos');
+    const dados = await r.json();
+    console.log(dados);
+  } catch (e) { console.log('Erro', e); }
+}
+```
+
+AULA 5: DOM avançado e delegação de eventos
+A delegação coloca um único listener no elemento pai e usa event.target para saber qual filho foi clicado, o que funciona até para itens criados depois. O IntersectionObserver detecta quando um elemento aparece na tela (carregamento preguiçoso), e classList troca estilos.
+
+EXEMPLO DE CÓDIGO
+```
+document.querySelector('#lista').addEventListener('click', (e) => {
+  const li = e.target.closest('li');
+  if (li) li.classList.toggle('feito');
+});
+new IntersectionObserver((es) => es.forEach(x => x.isIntersecting && console.log('visível')))
+  .observe(document.querySelector('#rodape'));
+```
+
+AULA 6: APIs: POST, erros e CORS
+Para enviar dados use fetch com method POST, header Content-Type e body em JSON. Sempre confira r.ok, porque o fetch só rejeita em falha de rede, não em erro 404 ou 500. O navegador bloqueia chamadas a outro domínio, a menos que a API ative o CORS.
+
+EXEMPLO DE CÓDIGO
+```
+const r = await fetch('/api/tarefas', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ titulo: 'Estudar' })
+});
+if (!r.ok) throw new Error('Erro ' + r.status);
+const nova = await r.json();
+```
+
+AULA 7: Promises em detalhe
+Uma Promise tem três estados: pendente, resolvida ou rejeitada. then trata o sucesso, catch trata o erro, e Promise.all espera várias ao mesmo tempo, o que acelera chamadas independentes.
+
+EXEMPLO DE CÓDIGO
+```
+const esperar = (ms) => new Promise(ok => setTimeout(ok, ms));
+esperar(500).then(() => console.log('pronto'));
+const [a, b] = await Promise.all([
+  fetch('/api/a').then(r => r.json()),
+  fetch('/api/b').then(r => r.json())
+]);
+```
+
+AULA 8: Classes, módulos e Web Storage
+Classes (class) trazem OOP ao JavaScript. Módulos ES (import e export) dividem o código em arquivos. O localStorage guarda dados simples no navegador, mas nunca guarde senhas ou tokens sensíveis nele.
+
+EXEMPLO DE CÓDIGO
+```
+export class Carrinho {
+  itens = [];
+  add(p) { this.itens.push(p); }
+  get total() { return this.itens.reduce((s, p) => s + p.preco, 0); }
+}
+localStorage.setItem('tema', 'escuro');
+```
+
+EXERCÍCIO PRÁTICO
+Faça um contador com botões + e −. Mostre o número na tela e altere o valor a cada clique.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual palavra declara uma variável que não pode ser reatribuída?
+A) let
+B) const
+C) var
+GABARITO: B
+
+PERGUNTA 2: Qual método faz um elemento reagir a um clique?
+A) addEventListener
+B) querySelector
+C) createElement
+GABARITO: A
+
+==============================================================================
+MÓDULO 5: TypeScript
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+É o JavaScript com tipos: o editor aponta erros antes de o site rodar. Muito usado em projetos grandes e em frameworks como React, Angular e Node.js. Depois de escrito, é convertido (compilado) para JavaScript puro.
+
+O QUE VOCÊ VAI APRENDER
+- Tipos básicos e inferência
+- interface e type
+- Funções tipadas
+- Generics
+- Configuração: tsconfig.json
+
+EXEMPLO RÁPIDO
+```
+interface Aluno { nome: string; nota: number }
+
+function media(a: Aluno[]): number {
+  return a.reduce((s, x) => s + x.nota, 0) / a.length;
+}
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Tipos básicos
+Você anota o tipo depois do nome: string, number, boolean, arrays e tuplas. O TypeScript também infere tipos sozinho, então nem tudo precisa de anotação. Se você guardar um tipo errado, o editor avisa na hora.
+
+EXEMPLO DE CÓDIGO
+```
+let nome: string = 'Ana';
+let notas: number[] = [8, 9];
+let ativo = true; // inferido: boolean
+nome = 5; // erro!
+```
+
+AULA 2: interface e type
+interface e type descrevem o formato de um objeto. Propriedades opcionais usam ?, e type permite uniões de valores possíveis.
+
+EXEMPLO DE CÓDIGO
+```
+interface Curso {
+  id: number;
+  titulo: string;
+  nivel?: 'basico' | 'avancado';
+}
+const c: Curso = { id: 1, titulo: 'HTML' };
+```
+
+AULA 3: Funções tipadas
+Defina os tipos dos parâmetros e do retorno. Assim, chamar a função com argumentos errados vira erro antes de o site rodar.
+
+EXEMPLO DE CÓDIGO
+```
+function soma(a: number, b: number): number {
+  return a + b;
+}
+soma(2, '3'); // erro de tipo
+```
+
+AULA 4: Generics e configuração
+Generics (<T>) criam funções que funcionam com vários tipos mantendo a segurança. O arquivo tsconfig.json define como compilar, e o comando tsc converte tudo em JavaScript.
+
+EXEMPLO DE CÓDIGO
+```
+function primeiro<T>(lista: T[]): T {
+  return lista[0];
+}
+const n = primeiro([10, 20]); // number
+// terminal: npx tsc
+```
+
+AULA 5: Unions, narrowing e utility types
+Uma união (A | B) aceita vários tipos, e o narrowing (typeof, in) deixa o TypeScript saber qual é qual. Os utility types Partial, Pick, Omit e Record criam tipos novos a partir de tipos existentes. Prefira unknown a any.
+
+EXEMPLO DE CÓDIGO
+```
+type Id = number | string;
+function mostrar(id: Id) {
+  return typeof id === 'string' ? id.toUpperCase() : id.toFixed(0);
+}
+type Edicao = Partial<Curso>;
+type Resumo = Pick<Curso, 'id' | 'titulo'>;
+```
+
+AULA 6: Classes e generics em APIs
+Classes em TypeScript têm modificadores (public, private, readonly) e implementam interfaces. Combinadas com generics, criam respostas de API tipadas de ponta a ponta.
+
+EXEMPLO DE CÓDIGO
+```
+interface Resposta<T> { ok: boolean; dados: T }
+class Servico<T> {
+  constructor(private url: string) {}
+  async buscar(): Promise<Resposta<T[]>> {
+    const r = await fetch(this.url);
+    return { ok: r.ok, dados: await r.json() };
+  }
+}
+```
+
+EXERCÍCIO PRÁTICO
+Converta o contador do módulo anterior para TypeScript. Crie um arquivo .ts e use o comando tsc (ou um playground online) para ver os erros de tipo.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: O que o TypeScript faz?
+A) Roda direto no navegador sem conversão
+B) Adiciona tipos ao JavaScript e aponta erros antes de rodar
+C) Substitui o HTML
+GABARITO: B
+
+PERGUNTA 2: Qual símbolo marca uma propriedade opcional?
+A) ?
+B) !
+C) *
+GABARITO: A
+
+==============================================================================
+MÓDULO 6: Python
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+No site, roda no servidor (back-end) com Django, Flask ou FastAPI: recebe pedidos, aplica regras de negócio, conversa com o banco e devolve páginas ou JSON. Também é a linguagem líder em automação e análise de dados.
+
+O QUE VOCÊ VAI APRENDER
+- Sintaxe, listas e dicionários
+- Funções, módulos e pip
+- Orientação a objetos
+- Flask/FastAPI: rotas e APIs
+- Ambiente virtual (venv)
+- Login e segurança básica
+
+EXEMPLO RÁPIDO
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/ola/<nome>")
+def ola(nome):
+    return f"Olá, {nome}!"
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Sintaxe e estruturas de dados
+Python usa indentação (recuo) para definir blocos, sem chaves. Listas guardam sequências e dicionários guardam pares chave-valor, formato parecido com o JSON das APIs.
+
+EXEMPLO DE CÓDIGO
+```
+curso = {'nome': 'Python', 'aulas': 12}
+notas = [8, 9, 7]
+for n in notas:
+    if n >= 7:
+        print('ok', n)
+```
+
+AULA 2: Funções, módulos e pip
+Funções usam def. Módulos são arquivos que você importa, e o pip instala bibliotecas de terceiros. Use um ambiente virtual (venv) para isolar as dependências de cada projeto.
+
+EXEMPLO DE CÓDIGO
+```
+def media(lista):
+    return sum(lista) / len(lista)
+
+# terminal:
+# python -m venv venv
+# pip install flask
+```
+
+AULA 3: Flask: rotas e JSON
+No Flask, cada rota liga uma URL a uma função. Retornar dados com jsonify cria uma API que o JavaScript do front-end consome com fetch.
+
+EXEMPLO DE CÓDIGO
+```
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/api/cursos')
+def cursos():
+    return jsonify(['HTML', 'CSS', 'Python'])
+```
+
+AULA 4: Banco de dados e segurança
+Conecte ao banco com sqlite3 ou SQLAlchemy e use sempre consultas com parâmetros. Guarde senhas somente com hash (por exemplo, werkzeug.security), nunca em texto puro.
+
+EXEMPLO DE CÓDIGO
+```
+import sqlite3
+con = sqlite3.connect('site.db')
+email = 'ana@exemplo.com'
+cur = con.execute('SELECT * FROM alunos WHERE email = ?', (email,))
+print(cur.fetchone())
+```
+
+AULA 5: Orientação a objetos
+Classes agrupam dados e comportamento. __init__ cria o objeto, self é a própria instância, e a herança reaproveita código. Em projetos web, os modelos de dados costumam ser classes.
+
+EXEMPLO DE CÓDIGO
+```
+class Aluno:
+    def __init__(self, nome):
+        self.nome = nome
+    def saudar(self):
+        return 'Oi, ' + self.nome
+
+class Monitor(Aluno):
+    def saudar(self):
+        return 'Monitor ' + super().saudar()
+```
+
+AULA 6: Django e testes
+O Django é um framework completo: já traz ORM (banco), painel admin, autenticação e proteção contra CSRF e XSS. Com o pytest você escreve testes automáticos para as suas funções.
+
+EXEMPLO DE CÓDIGO
+```
+# terminal
+pip install django
+django-admin startproject site
+python manage.py runserver
+
+# teste.py
+def test_media():
+    assert media([8, 6]) == 7
+```
+
+EXERCÍCIO PRÁTICO
+Crie uma API que devolve uma lista de cursos em JSON. Teste no navegador ou com uma ferramenta como o Thunder Client / Postman.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Em Python, o que define um bloco de código?
+A) Chaves {}
+B) Indentação
+C) Ponto e vírgula
+GABARITO: B
+
+PERGUNTA 2: Qual ferramenta instala bibliotecas Python?
+A) pip
+B) npm
+C) sql
+GABARITO: A
+
+==============================================================================
+MÓDULO 7: PHP
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Linguagem de servidor feita para a web: gera HTML dinâmico, processa formulários, controla sessões e login. É a base do WordPress, que ainda roda uma grande parte dos sites do mundo.
+
+O QUE VOCÊ VAI APRENDER
+- Sintaxe e variáveis com $
+- Formulários: $_GET e $_POST
+- Sessões e cookies
+- MySQL com PDO
+- include e organização do projeto
+- Laravel (framework)
+
+EXEMPLO RÁPIDO
+```
+<?php
+$nome = $_POST["nome"] ?? "visitante";
+echo "Bem-vindo, " . htmlspecialchars($nome);
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Sintaxe e variáveis
+O código PHP fica entre <?php e ?>. Variáveis começam com $ e o ponto (.) junta textos. O servidor executa o PHP e envia ao navegador só o HTML pronto.
+
+EXEMPLO DE CÓDIGO
+```
+<?php
+$nome = 'Ana';
+$idade = 20;
+echo 'Olá, ' . $nome;
+?>
+```
+
+AULA 2: Formulários
+Os dados enviados chegam em $_POST (ou $_GET). Sempre valide e use htmlspecialchars antes de exibir, para evitar ataques XSS.
+
+EXEMPLO DE CÓDIGO
+```
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $email = trim($_POST['email'] ?? '');
+  echo 'Recebido: ' . htmlspecialchars($email);
+}
+```
+
+AULA 3: Sessões e login
+session_start() cria uma sessão para lembrar o usuário entre páginas. Para senhas, use password_hash ao cadastrar e password_verify ao entrar.
+
+EXEMPLO DE CÓDIGO
+```
+<?php
+session_start();
+$hash = password_hash('minhasenha', PASSWORD_DEFAULT);
+if (password_verify('minhasenha', $hash)) {
+  $_SESSION['usuario'] = 'ana';
+}
+```
+
+AULA 4: MySQL com PDO
+O PDO conecta ao banco com segurança. Consultas preparadas (prepare e execute) impedem SQL injection. Depois do básico, o framework Laravel organiza projetos grandes.
+
+EXEMPLO DE CÓDIGO
+```
+<?php
+$pdo = new PDO('mysql:host=localhost;dbname=site', 'user', 'senha');
+$st = $pdo->prepare('SELECT * FROM alunos WHERE email = ?');
+$st->execute([$email]);
+$aluno = $st->fetch();
+```
+
+AULA 5: OOP, namespaces e Composer
+No PHP moderno o código vive em classes com namespaces, carregadas pelo autoload do Composer, o gerenciador de pacotes do PHP. O padrão MVC separa Model (dados), View (HTML) e Controller (lógica).
+
+EXEMPLO DE CÓDIGO
+```
+<?php
+namespace App\Models;
+class Aluno {
+  public function __construct(private string $nome) {}
+  public function nome(): string { return $this->nome; }
+}
+// terminal: composer require vlucas/phpdotenv
+```
+
+AULA 6: Laravel: o essencial
+O Laravel traz rotas, Eloquent (ORM), Blade (templates), validação, autenticação e proteção CSRF prontas. Você cria uma rota e um controller e já tem uma página dinâmica.
+
+EXEMPLO DE CÓDIGO
+```
+// routes/web.php
+Route::get('/cursos', [CursoController::class, 'index']);
+// CursoController
+public function index() {
+  return view('cursos', ['lista' => Curso::all()]);
+}
+```
+
+EXERCÍCIO PRÁTICO
+Monte um formulário de contato que exibe uma mensagem de agradecimento após o envio. Use htmlspecialchars para segurança.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual símbolo inicia uma variável em PHP?
+A) $
+B) @
+C) #
+GABARITO: A
+
+PERGUNTA 2: O que evita SQL injection?
+A) echo
+B) Consultas preparadas
+C) include
+GABARITO: B
+
+==============================================================================
+MÓDULO 8: SQL
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Linguagem para conversar com o banco de dados: guarda e busca usuários, produtos, pedidos e comentários. Todo site com login, loja ou blog depende de um banco.
+
+O QUE VOCÊ VAI APRENDER
+- Tabelas, linhas e colunas
+- SELECT, WHERE, ORDER BY
+- INSERT, UPDATE, DELETE
+- JOIN: relacionar tabelas
+- Chave primária e estrangeira
+- Segurança: use consultas preparadas, nunca junte texto do usuário ao SQL
+
+EXEMPLO RÁPIDO
+```
+SELECT nome, email
+FROM alunos
+WHERE ativo = 1
+ORDER BY nome;
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Criar tabelas
+Um banco guarda dados em tabelas (colunas e linhas). Cada tabela tem uma chave primária (PRIMARY KEY), que identifica cada linha de forma única.
+
+EXEMPLO DE CÓDIGO
+```
+CREATE TABLE alunos (
+  id INTEGER PRIMARY KEY,
+  nome TEXT NOT NULL,
+  email TEXT UNIQUE
+);
+```
+
+AULA 2: Inserir e consultar
+INSERT adiciona linhas e SELECT lê dados. WHERE filtra, ORDER BY ordena e LIMIT restringe a quantidade de resultados.
+
+EXEMPLO DE CÓDIGO
+```
+INSERT INTO alunos (nome, email)
+VALUES ('Ana', 'ana@exemplo.com');
+
+SELECT nome FROM alunos
+WHERE email LIKE '%@exemplo.com'
+ORDER BY nome LIMIT 10;
+```
+
+AULA 3: Atualizar e apagar
+UPDATE altera linhas e DELETE remove. Sempre use WHERE: sem ele, o comando afeta a tabela inteira.
+
+EXEMPLO DE CÓDIGO
+```
+UPDATE alunos SET nome = 'Ana Lima' WHERE id = 1;
+DELETE FROM alunos WHERE id = 2;
+```
+
+AULA 4: JOIN e agregações
+A chave estrangeira liga tabelas, e o JOIN junta os dados delas numa consulta. COUNT, SUM e AVG com GROUP BY resumem os dados.
+
+EXEMPLO DE CÓDIGO
+```
+SELECT a.nome, COUNT(m.id) AS cursos
+FROM alunos a
+JOIN matriculas m ON m.aluno_id = a.id
+GROUP BY a.nome;
+```
+
+AULA 5: JOINs: INNER, LEFT e subconsultas
+INNER JOIN traz só as linhas com par nas duas tabelas. LEFT JOIN traz todas as da esquerda, mesmo sem par (vindo NULL). Subconsultas colocam um SELECT dentro de outro, e HAVING filtra grupos.
+
+EXEMPLO DE CÓDIGO
+```
+SELECT a.nome, COUNT(m.id) AS total
+FROM alunos a
+LEFT JOIN matriculas m ON m.aluno_id = a.id
+GROUP BY a.nome
+HAVING COUNT(m.id) = 0;
+
+SELECT nome FROM alunos
+WHERE id IN (SELECT aluno_id FROM matriculas);
+```
+
+AULA 6: Views, índices e EXPLAIN
+Uma view guarda uma consulta com nome, facilitando relatórios. Índices aceleram buscas, mas deixam as escritas mais lentas. O EXPLAIN mostra como o banco executa a consulta e ajuda a achar gargalos.
+
+EXEMPLO DE CÓDIGO
+```
+CREATE VIEW ativos AS
+  SELECT * FROM alunos WHERE ativo = 1;
+CREATE INDEX idx_mat ON matriculas(aluno_id);
+EXPLAIN SELECT * FROM matriculas WHERE aluno_id = 5;
+```
+
+EXERCÍCIO PRÁTICO
+Modele as tabelas alunos e cursos e liste os cursos de um aluno com JOIN. Pratique no SQLite online ou em um cliente gráfico.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual comando lê dados?
+A) SELECT
+B) INSERT
+C) DROP
+GABARITO: A
+
+PERGUNTA 2: O que acontece em um DELETE sem WHERE?
+A) Nada
+B) Apaga todas as linhas da tabela
+C) Sempre dá erro
+GABARITO: B
+
+==============================================================================
+MÓDULO 9: Node.js
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Permite usar JavaScript no servidor. Cria APIs, sistemas em tempo real e ferramentas de linha de comando, e usa o npm, o maior repositório de pacotes do mundo.
+
+O QUE VOCÊ VAI APRENDER
+- Módulos e npm
+- API REST com Express
+- Promises e async/await
+- WebSockets
+
+EXEMPLO RÁPIDO
+```
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => res.send('Olá!'));
+app.listen(3000);
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Módulos e npm
+npm init cria o projeto (package.json) e npm install baixa pacotes. Com require ou import você divide o código em arquivos reutilizáveis.
+
+EXEMPLO DE CÓDIGO
+```
+npm init -y
+npm install express
+// soma.js
+exports.soma = (a, b) => a + b;
+```
+
+AULA 2: API REST com Express
+REST usa URLs para recursos e métodos HTTP para ações: GET lê, POST cria, PUT altera e DELETE remove. O Express liga cada rota a uma função.
+
+EXEMPLO DE CÓDIGO
+```
+app.use(express.json());
+const tarefas = [];
+app.get('/tarefas', (req, res) => res.json(tarefas));
+app.post('/tarefas', (req, res) => {
+  tarefas.push(req.body);
+  res.status(201).json(req.body);
+});
+```
+
+AULA 3: Promises e async/await
+O Node usa um event loop: operações lentas (arquivos, rede, banco) não travam o servidor. Uma Promise representa um resultado futuro, e async/await a deixa com cara de código comum.
+
+EXEMPLO DE CÓDIGO
+```
+const fs = require('fs/promises');
+async function ler() {
+  const txt = await fs.readFile('dados.json', 'utf8');
+  return JSON.parse(txt);
+}
+Promise.all([ler(), ler()]).then(console.log);
+```
+
+AULA 4: WebSockets
+HTTP é pedido e resposta. O WebSocket mantém a conexão aberta nos dois sentidos, ideal para chat, jogos e notificações em tempo real.
+
+EXEMPLO DE CÓDIGO
+```
+const { WebSocketServer } = require('ws');
+const wss = new WebSocketServer({ port: 8080 });
+wss.on('connection', (ws) => {
+  ws.on('message', (m) => ws.send('eco: ' + m));
+});
+```
+
+AULA 5: Middlewares, validação e erros
+Middleware é uma função que roda entre o pedido e a resposta: logs, autenticação, validação. Centralize os erros em um middleware final e valide toda entrada (por exemplo, com zod ou joi).
+
+EXEMPLO DE CÓDIGO
+```
+app.use((req, res, next) => { console.log(req.method, req.url); next(); });
+app.post('/tarefas', (req, res) => {
+  if (!req.body.titulo) return res.status(400).json({ erro: 'titulo obrigatório' });
+  res.sendStatus(201);
+});
+app.use((err, req, res, next) => res.status(500).json({ erro: 'falha interna' }));
+```
+
+AULA 6: Ambiente, CORS e segurança
+Guarde segredos em variáveis de ambiente (arquivo .env fora do Git). O CORS define quais sites podem chamar a sua API pelo navegador, e o helmet adiciona cabeçalhos de segurança.
+
+EXEMPLO DE CÓDIGO
+```
+require('dotenv').config();
+const cors = require('cors');
+const helmet = require('helmet');
+app.use(helmet());
+app.use(cors({ origin: 'https://meusite.com' }));
+const segredo = process.env.JWT_SEGREDO;
+```
+
+EXERCÍCIO PRÁTICO
+Crie uma API de tarefas com GET e POST. Teste as rotas no navegador e com uma ferramenta de API.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual método HTTP cria um recurso novo?
+A) GET
+B) POST
+C) DELETE
+GABARITO: B
+
+PERGUNTA 2: O que o WebSocket oferece?
+A) Conexão aberta nos dois sentidos
+B) Só pedido e resposta
+C) Um banco de dados
+GABARITO: A
+
+==============================================================================
+MÓDULO 10: Java
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Linguagem forte, tipada e orientada a objetos, muito usada em sistemas empresariais e bancos. Na web roda no servidor, geralmente com Spring Boot, e também em apps Android.
+
+O QUE VOCÊ VAI APRENDER
+- Classes e objetos (OOP)
+- Herança, interfaces e polimorfismo
+- Generics e coleções
+- Spring Boot e JDBC
+
+EXEMPLO RÁPIDO
+```
+public class Ola {
+  public static void main(String[] args) {
+    System.out.println("Olá, web!");
+  }
+}
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Classes e objetos
+A OOP organiza o código em classes (modelo) e objetos (instâncias). O encapsulamento esconde os dados com private e expõe só o necessário por métodos.
+
+EXEMPLO DE CÓDIGO
+```
+class Aluno {
+  private String nome;
+  Aluno(String nome) { this.nome = nome; }
+  String getNome() { return nome; }
+}
+Aluno a = new Aluno("Ana");
+```
+
+AULA 2: Herança, interfaces e polimorfismo
+A herança (extends) reaproveita código. A interface define um contrato que várias classes cumprem de formas diferentes, e o polimorfismo permite tratá-las do mesmo jeito.
+
+EXEMPLO DE CÓDIGO
+```
+interface Pagavel { double valor(); }
+class Curso implements Pagavel {
+  public double valor() { return 99.9; }
+}
+Pagavel p = new Curso();
+```
+
+AULA 3: Generics e coleções
+Generics (<T>) deixam classes e métodos seguros para vários tipos, sem conversões. As coleções mais usadas são List, Set e Map.
+
+EXEMPLO DE CÓDIGO
+```
+List<String> nomes = new ArrayList<>();
+nomes.add("Ana");
+Map<Integer, String> mapa = new HashMap<>();
+mapa.put(1, "Java");
+nomes.forEach(System.out::println);
+```
+
+AULA 4: Spring Boot e JDBC
+O Spring Boot cria uma API com poucas linhas, usando anotações. Com JDBC ou JPA você acessa o banco, sempre com PreparedStatement para evitar SQL injection.
+
+EXEMPLO DE CÓDIGO
+```
+@RestController
+class CursoController {
+  @GetMapping("/cursos")
+  List<String> listar() {
+    return List.of("HTML", "Java");
+  }
+}
+```
+
+AULA 5: Streams, Optional e exceções
+Streams filtram e transformam coleções de forma declarativa. Optional evita NullPointerException, e try/catch trata erros. Exceções verificadas precisam ser tratadas ou declaradas com throws.
+
+EXEMPLO DE CÓDIGO
+```
+List<Integer> notas = List.of(5, 8, 9);
+List<Integer> boas = notas.stream().filter(n -> n >= 7).toList();
+Optional<String> nome = Optional.ofNullable(buscar());
+System.out.println(nome.orElse("sem nome"));
+```
+
+AULA 6: Spring: camadas e JPA
+No Spring organize o código em Controller (HTTP), Service (regras) e Repository (banco). O JPA mapeia classes para tabelas, e @Transactional garante que uma operação grave tudo ou nada.
+
+EXEMPLO DE CÓDIGO
+```
+@Entity class Curso { @Id @GeneratedValue Long id; String titulo; }
+interface CursoRepo extends JpaRepository<Curso, Long> {}
+@Service class CursoService {
+  @Transactional void criar(Curso c) { repo.save(c); }
+}
+```
+
+EXERCÍCIO PRÁTICO
+Crie uma API Spring Boot com GET /cursos. Siga o guia oficial de “Spring Initializr” se for a primeira vez.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual palavra faz uma classe herdar de outra?
+A) extends
+B) implements
+C) import
+GABARITO: A
+
+PERGUNTA 2: O que o PreparedStatement ajuda a evitar?
+A) SQL injection
+B) Erros de sintaxe
+C) Lentidão
+GABARITO: A
+
+==============================================================================
+MÓDULO 11: C#/.NET
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Linguagem moderna da Microsoft, tipada e orientada a objetos. Com ASP.NET Core cria sites e APIs rápidos e multiplataforma, e também é usada em jogos com Unity.
+
+O QUE VOCÊ VAI APRENDER
+- Sintaxe, classes e OOP
+- async/await e LINQ
+- ASP.NET Core Minimal API
+- Entity Framework e transações
+
+EXEMPLO RÁPIDO
+```
+var app = WebApplication.CreateBuilder(args).Build();
+app.MapGet("/", () => "Olá, .NET!");
+app.Run();
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Sintaxe e OOP
+C# usa classes, propriedades (get e set), herança e interfaces. Os records são ótimos para dados imutáveis.
+
+EXEMPLO DE CÓDIGO
+```
+record Aluno(string Nome, int Nota);
+class Curso {
+  public string Titulo { get; set; } = "";
+}
+var a = new Aluno("Ana", 9);
+```
+
+AULA 2: async/await e LINQ
+Task representa uma operação assíncrona, e await espera o resultado sem travar. O LINQ filtra e transforma coleções com poucas linhas.
+
+EXEMPLO DE CÓDIGO
+```
+var notas = new[] { 5, 8, 9 };
+var boas = notas.Where(n => n >= 7).ToList();
+async Task<string> BaixarAsync(HttpClient c) =>
+  await c.GetStringAsync("https://exemplo.com");
+```
+
+AULA 3: ASP.NET Core Minimal API
+Cada rota liga um método HTTP a uma função. O ASP.NET converte objetos em JSON automaticamente e já traz autenticação e injeção de dependência.
+
+EXEMPLO DE CÓDIGO
+```
+var tarefas = new List<string>();
+app.MapGet("/tarefas", () => tarefas);
+app.MapPost("/tarefas", (string t) => {
+  tarefas.Add(t);
+  return Results.Created("/tarefas", t);
+});
+```
+
+AULA 4: Entity Framework e transações
+O Entity Framework mapeia classes para tabelas e gera SQL parametrizado por você. O SaveChanges é transacional: ou grava tudo, ou nada.
+
+EXEMPLO DE CÓDIGO
+```
+using var db = new AppDb();
+db.Alunos.Add(new Aluno { Nome = "Ana" });
+db.SaveChanges();
+var lista = db.Alunos.Where(a => a.Nome == "Ana").ToList();
+```
+
+AULA 5: Injeção de dependência e interfaces
+O ASP.NET Core tem injeção de dependência embutida: você registra serviços (AddScoped) e os recebe nos parâmetros, o que facilita testes e a troca de implementação.
+
+EXEMPLO DE CÓDIGO
+```
+interface IEmail { void Enviar(string para); }
+class EmailSmtp : IEmail { public void Enviar(string p) { /* ... */ } }
+builder.Services.AddScoped<IEmail, EmailSmtp>();
+app.MapPost("/avisar", (IEmail e) => { e.Enviar("a@b.com"); return Results.Ok(); });
+```
+
+AULA 6: Generics, delegates e eventos
+Generics em C# criam classes reutilizáveis com segurança de tipos. Delegates (Func e Action) guardam funções em variáveis, e eventos permitem que objetos avisem outros quando algo acontece.
+
+EXEMPLO DE CÓDIGO
+```
+class Caixa<T> { public T Valor { get; set; } }
+Func<int, int> dobro = x => x * 2;
+class Pedido {
+  public event Action<string>? Pago;
+  public void Pagar() => Pago?.Invoke("ok");
+}
+```
+
+EXERCÍCIO PRÁTICO
+Crie uma API ASP.NET Core de tarefas com GET e POST. Use o template Minimal API do Visual Studio ou do comando dotnet.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual palavra espera uma operação assíncrona?
+A) await
+B) yield
+C) sync
+GABARITO: A
+
+PERGUNTA 2: O que o LINQ faz?
+A) Consulta e transforma coleções
+B) Cria páginas HTML
+C) Compila CSS
+GABARITO: A
+
+==============================================================================
+MÓDULO 12: Web e Engenharia
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Reúne o que faz um site ser seguro, rápido e profissional: HTTP/HTTPS, REST, banco avançado, segurança, autenticação, Git, CI/CD, PWA, deploy e frameworks. Este é um dos módulos mais importantes para quem quer trabalhar na área.
+
+O QUE VOCÊ VAI APRENDER
+- HTTP, HTTPS e REST
+- Transações e índices
+- XSS, CSRF e SQL Injection
+- Autenticação e autorização
+- Git/GitHub, CI/CD e deploy
+- PWA, Service Workers e frameworks
+
+EXEMPLO RÁPIDO
+```
+Cliente → HTTPS → API REST → Autenticação → Regras → Banco (transação)
+```
+
+AULAS INDIVIDUAIS (15 aulas)
+
+AULA 1: HTTP, HTTPS e REST
+O HTTP define como cliente e servidor conversam. O HTTPS adiciona criptografia (TLS) e protege senhas em trânsito. Uma API REST usa URLs de recursos, métodos (GET, POST, PUT, DELETE) e códigos de status (200, 201, 400, 401, 404, 500).
+
+EXEMPLO DE CÓDIGO
+```
+GET    /cursos     → lista (200)
+POST   /cursos     → cria (201)
+PUT    /cursos/5   → altera (200)
+DELETE /cursos/5   → remove (204)
+```
+
+AULA 2: Banco avançado: transações e índices
+Uma transação agrupa comandos em uma unidade: ou todos acontecem (COMMIT) ou nenhum (ROLLBACK), garantindo consistência (ACID). Índices aceleram buscas em colunas muito consultadas.
+
+EXEMPLO DE CÓDIGO
+```
+BEGIN;
+UPDATE contas SET saldo = saldo - 100 WHERE id = 1;
+UPDATE contas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;
+CREATE INDEX idx_email ON alunos(email);
+```
+
+AULA 3: Segurança: XSS, CSRF e SQL Injection
+XSS é injetar script na página: escape tudo que o usuário digita (textContent, htmlspecialchars). CSRF é fazer o navegador do usuário enviar um pedido sem ele saber: use tokens CSRF e cookies SameSite. SQL Injection é inserir SQL em um campo: use sempre consultas parametrizadas.
+
+EXEMPLO DE CÓDIGO
+```
+// ERRADO (SQL Injection)
+consulta = "SELECT * FROM u WHERE email = '" + email + "'"
+// CERTO
+db.query('SELECT * FROM u WHERE email = ?', [email]);
+// XSS: use textContent, não innerHTML
+el.textContent = comentario;
+```
+
+AULA 4: Autenticação e autorização
+Autenticação confirma quem é o usuário (senha com hash bcrypt ou argon2, e MFA). Autorização define o que ele pode fazer (papéis como admin e aluno). Sessões usam cookies HttpOnly e Secure; JWT é um token assinado enviado a cada pedido.
+
+EXEMPLO DE CÓDIGO
+```
+const ok = await bcrypt.compare(senha, usuario.hash);
+if (!ok) return res.status(401).end();
+if (usuario.papel !== 'admin') return res.status(403).end();
+```
+
+AULA 5: Git e GitHub
+O Git guarda o histórico do código e permite trabalhar em branches (ramos). O GitHub hospeda o repositório e organiza o trabalho em equipe com pull requests e code review.
+
+EXEMPLO DE CÓDIGO
+```
+git init
+git add .
+git commit -m 'primeira versão'
+git switch -c nova-funcao
+git push -u origin nova-funcao
+```
+
+AULA 6: CI/CD e deploy
+CI (integração contínua) roda os testes a cada push. CD (entrega contínua) publica a versão aprovada. O GitHub Actions faz isso com um arquivo YAML. Para publicar: sites estáticos no GitHub Pages ou Netlify, back-ends no Render, Railway ou com Docker.
+
+EXEMPLO DE CÓDIGO
+```
+# .github/workflows/ci.yml
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci && npm test
+```
+
+AULA 7: PWA e Service Workers
+Um PWA é um site que se instala como app e funciona offline. Precisa de HTTPS, de um manifest.json (nome e ícones) e de um Service Worker, script que intercepta requisições e usa cache.
+
+EXEMPLO DE CÓDIGO
+```
+// sw.js
+self.addEventListener('install', e =>
+  e.waitUntil(caches.open('v1').then(c => c.addAll(['/', '/app.js']))));
+self.addEventListener('fetch', e =>
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));
+// registrar: navigator.serviceWorker.register('/sw.js')
+```
+
+AULA 8: Frameworks
+Frameworks aceleram o desenvolvimento. Front-end: React, Vue e Angular. Back-end: Express, Flask, Django, Laravel, Spring Boot e ASP.NET Core. Aprenda os fundamentos antes e escolha um framework por camada.
+
+EXEMPLO DE CÓDIGO
+```
+function Contador() {
+  const [n, setN] = useState(0);
+  return <button onClick={() => setN(n + 1)}>{n}</button>;
+}
+```
+
+AULA 9: XSS na prática
+Existem XSS refletido, armazenado (o mais perigoso) e baseado em DOM. Defesas: escapar a saída conforme o contexto, evitar innerHTML com dados do usuário, validar as entradas e ativar uma Content-Security-Policy (CSP).
+
+EXEMPLO DE CÓDIGO
+```
+// Vulnerável
+el.innerHTML = '<p>' + comentario + '</p>';
+// Seguro
+const p = document.createElement('p');
+p.textContent = comentario;
+// Cabeçalho HTTP
+Content-Security-Policy: default-src 'self'
+```
+
+AULA 10: CSRF na prática
+No CSRF, um site malicioso aproveita o cookie de login do usuário para disparar uma ação. Defesas: token CSRF único por sessão, cookies SameSite=Lax ou Strict e nunca alterar dados com GET.
+
+EXEMPLO DE CÓDIGO
+```
+<form method='post' action='/transferir'>
+  <input type='hidden' name='csrf' value='TOKEN_DA_SESSAO'>
+</form>
+// Cookie
+Set-Cookie: sid=abc; HttpOnly; Secure; SameSite=Lax
+```
+
+AULA 11: SQL Injection na prática
+Quando o texto do usuário vira parte do SQL, ele pode alterar a consulta (por exemplo, com ' OR 1=1). A defesa é separar código e dados com consultas parametrizadas ou ORM, e dar ao usuário do banco só as permissões necessárias.
+
+EXEMPLO DE CÓDIGO
+```
+# Python: o parâmetro vai separado do SQL
+cur.execute('SELECT * FROM users WHERE email = %s', (email,))
+// Java
+PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email = ?");
+ps.setString(1, email);
+```
+
+AULA 12: Senhas, sessões e JWT
+Nunca guarde senhas em texto: use hash lento com sal (bcrypt ou argon2). Na sessão, o servidor guarda o estado e o cookie só tem o ID. No JWT, o token assinado carrega os dados: use validade curta, guarde em cookie HttpOnly e valide a assinatura em todo pedido.
+
+EXEMPLO DE CÓDIGO
+```
+const hash = await bcrypt.hash(senha, 12);
+const token = jwt.sign({ id: u.id, papel: u.papel }, SEGREDO, { expiresIn: '15m' });
+res.cookie('t', token, { httpOnly: true, secure: true, sameSite: 'lax' });
+```
+
+AULA 13: Autorização (RBAC)
+A autorização acontece no servidor, a cada pedido. No RBAC cada usuário tem um papel (admin, editor, leitor) e cada papel tem permissões. Nunca confie só em esconder botões no front-end.
+
+EXEMPLO DE CÓDIGO
+```
+const exigir = (papel) => (req, res, next) =>
+  req.user.papel === papel ? next() : res.sendStatus(403);
+app.delete('/posts/:id', exigir('admin'), apagarPost);
+```
+
+AULA 14: Testes automatizados e Docker
+Testes automáticos evitam que um ajuste quebre outra parte do site; rode-os no CI. O Docker empacota a aplicação com tudo que ela precisa, para rodar igual em qualquer servidor.
+
+EXEMPLO DE CÓDIGO
+```
+# Dockerfile
+FROM node:20-alpine
+WORKDIR /app
+COPY . .
+RUN npm ci
+CMD ["node", "server.js"]
+
+// teste (Jest)
+test('soma', () => expect(soma(2, 3)).toBe(5));
+```
+
+AULA 15: React: componentes e estado
+O React divide a interface em componentes reutilizáveis. Props passam dados para baixo e o estado (useState) guarda o que muda. Quando o estado muda, o React redesenha só o necessário.
+
+EXEMPLO DE CÓDIGO
+```
+function Tarefas() {
+  const [lista, setLista] = useState([]);
+  return (
+    <ul>
+      {lista.map(t => <li key={t.id}>{t.titulo}</li>)}
+    </ul>
+  );
+}
+```
+
+EXERCÍCIO PRÁTICO
+Adicione login e HTTPS a um dos seus projetos e versione tudo no GitHub. Pratique criar um repositório e fazer commits claros.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual defesa impede SQL Injection?
+A) Consultas parametrizadas
+B) Usar HTTPS
+C) Usar cache
+GABARITO: A
+
+PERGUNTA 2: O que o Service Worker permite?
+A) Funcionar offline com cache
+B) Criar bancos de dados
+C) Compilar Java
+GABARITO: A
+
+PERGUNTA 3: Qual código HTTP indica falta de login (não autenticado)?
+A) 401
+B) 200
+C) 301
+GABARITO: A
+
+==============================================================================
+MÓDULO 13: Projetos práticos
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Praticar é o que fixa o conteúdo. Cada projeto reúne várias tecnologias, vai para o portfólio e passa por Git, testes, CI e deploy. Faça pelo menos dois projetos completos antes de se candidatar a vagas.
+
+O QUE VOCÊ VAI APRENDER
+- Portfólio responsivo
+- Lista de tarefas com API
+- Blog full-stack com login
+- Chat em tempo real como PWA
+
+EXEMPLO RÁPIDO
+```
+Projeto → Git → Testes → CI → Deploy
+```
+
+AULAS INDIVIDUAIS (6 aulas)
+
+AULA 1: Portfólio responsivo (HTML, CSS, JS)
+Crie uma página com sobre, projetos e contato, usando Grid e Flexbox, modo escuro e formulário validado. Publique no GitHub Pages.
+
+EXEMPLO DE CÓDIGO
+```
+1. Estrutura semântica (header, main, footer)
+2. CSS responsivo com variáveis
+3. JS: menu e validação
+4. Deploy no GitHub Pages
+```
+
+AULA 2: Lista de tarefas com API (Node + SQL)
+Front-end em JS puro que usa fetch em uma API Express com banco SQLite ou PostgreSQL. Faça o CRUD completo, valide as entradas e use consultas parametrizadas.
+
+EXEMPLO DE CÓDIGO
+```
+Rotas:
+GET/POST /tarefas
+PUT/DELETE /tarefas/:id
+Tabela: tarefas(id, titulo, feito)
+```
+
+AULA 3: Blog full-stack com login
+Back-end em Python, PHP, Java ou C#, banco relacional e front-end em TypeScript/React. Inclua cadastro com hash de senha, papéis (admin e leitor), proteção CSRF, escape de XSS, paginação e testes.
+
+EXEMPLO DE CÓDIGO
+```
+Tabelas: usuarios, posts, comentarios
+JOIN: posts + usuarios (autor)
+Papéis: admin cria, leitor comenta
+CI: testes no GitHub Actions
+```
+
+AULA 4: Chat em tempo real como PWA
+Use WebSockets (Node) para mensagens ao vivo, salve o histórico no banco, adicione manifest e Service Worker para instalar e abrir offline, e faça o deploy com HTTPS.
+
+EXEMPLO DE CÓDIGO
+```
+Servidor: Node + ws + banco
+Cliente: JS + manifest.json + sw.js
+Deploy: Render/Railway com HTTPS
+```
+
+AULA 5: Passo a passo: API + front-end
+Monte o back-end primeiro, teste no navegador ou com curl e só depois faça o front-end consumir a API. Assim você encontra os erros mais cedo.
+
+EXEMPLO DE CÓDIGO
+```
+// server.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+const db = [];
+app.get('/api/tarefas', (q, r) => r.json(db));
+app.post('/api/tarefas', (q, r) => {
+  const t = { id: db.length + 1, titulo: String(q.body.titulo || '').slice(0, 100) };
+  db.push(t); r.status(201).json(t);
+});
+app.use(express.static('public'));
+app.listen(process.env.PORT || 3000);
+```
+
+AULA 6: Front-end e deploy
+No front-end, use fetch e textContent (evita XSS). Depois suba o código no GitHub, configure o deploy no Render ou Railway e confirme que o site abre em HTTPS.
+
+EXEMPLO DE CÓDIGO
+```
+// public/app.js
+async function carregar() {
+  const r = await fetch('/api/tarefas');
+  const lista = document.querySelector('#lista');
+  lista.replaceChildren();
+  (await r.json()).forEach(t => {
+    const li = document.createElement('li');
+    li.textContent = t.titulo;
+    lista.append(li);
+  });
+}
+carregar();
+```
+
+EXERCÍCIO PRÁTICO
+Escolha o projeto 3 (blog) e publique-o com HTTPS e um repositório no GitHub. Documente o que você aprendeu.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual ordem é mais segura ao publicar?
+A) Testes e CI antes do deploy
+B) Deploy sem testes
+C) Testar só em produção
+GABARITO: A
+
+==============================================================================
+MÓDULO 14: Algoritmos e Estruturas de Dados
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+A base da ciência da computação: como resolver problemas de forma eficiente. Estruturas de dados organizam a informação e algoritmos dizem o que fazer com ela; juntos definem se um site responde em milissegundos ou trava.
+
+O QUE VOCÊ VAI APRENDER
+- Complexidade (Big O)
+- Busca e ordenação
+- Recursão, pilhas e filas
+- Hash, árvores e grafos
+
+EXEMPLO RÁPIDO
+```
+for item in lista:        # O(n)
+    ...
+busca_binaria(lista, x)   # O(log n)
+```
+
+AULAS INDIVIDUAIS (5 aulas)
+
+AULA 1: Complexidade e Big O
+O Big O mede como o tempo cresce com o tamanho da entrada (n), ignorando constantes. Os mais comuns: O(1) constante, O(log n) logarítmico, O(n) linear, O(n log n) e O(n²) quadrático. Com 1 milhão de itens, escolher O(n log n) em vez de O(n²) é a diferença entre segundos e dias.
+
+EXEMPLO DE CÓDIGO
+```
+def tem_repetido(v):      # O(n²)
+    for i in range(len(v)):
+        for j in range(i + 1, len(v)):
+            if v[i] == v[j]: return True
+    return False
+
+def tem_repetido2(v):     # O(n)
+    return len(set(v)) != len(v)
+```
+
+AULA 2: Busca e ordenação
+A busca linear percorre tudo, O(n). A busca binária exige lista ordenada e descarta metade a cada passo, O(log n). Ordenações simples (bolha, inserção) são O(n²); merge sort e quick sort são O(n log n), e as linguagens já trazem versões prontas (sorted, Array.sort).
+
+EXEMPLO DE CÓDIGO
+```
+def busca_binaria(v, x):
+    lo, hi = 0, len(v) - 1
+    while lo <= hi:
+        m = (lo + hi) // 2
+        if v[m] == x: return m
+        if v[m] < x: lo = m + 1
+        else: hi = m - 1
+    return -1
+```
+
+AULA 3: Recursão e pilha de chamadas
+Recursão é uma função que chama a si mesma, com um caso base que a interrompe. Cada chamada ocupa espaço na pilha, e sem caso base ocorre stack overflow. Divisão e conquista (merge sort) e percorrer árvores usam recursão; a memoização evita recalcular.
+
+EXEMPLO DE CÓDIGO
+```
+def fatorial(n):
+    if n <= 1: return 1     # caso base
+    return n * fatorial(n - 1)
+
+def fib(n, memo={}):         # memoização: O(n)
+    if n < 2: return n
+    if n not in memo: memo[n] = fib(n-1) + fib(n-2)
+    return memo[n]
+```
+
+AULA 4: Pilhas, filas e listas ligadas
+Pilha (stack) é LIFO: o último a entrar é o primeiro a sair; o botão voltar do navegador usa uma. Fila (queue) é FIFO: o primeiro a entrar é o primeiro a sair, como as filas de tarefas. A lista ligada guarda nós com ponteiro para o próximo: inserir no início é O(1), mas acessar o item i é O(n).
+
+EXEMPLO DE CÓDIGO
+```
+from collections import deque
+pilha = []; pilha.append(1); pilha.pop()
+fila = deque(); fila.append(1); fila.popleft()
+
+class No:
+    def __init__(self, v, prox=None):
+        self.v, self.prox = v, prox
+```
+
+AULA 5: Hash, árvores e grafos
+A tabela hash (dict, Map) guarda pares chave-valor com busca média O(1). A árvore binária de busca mantém os dados ordenados, com busca O(log n) quando balanceada, e é a base dos índices de banco. Grafos modelam redes (amigos, mapas) e são percorridos por BFS (por camadas, caminho mais curto) e DFS (em profundidade).
+
+EXEMPLO DE CÓDIGO
+```
+from collections import deque
+def bfs(g, ini):
+    vistos, fila = {ini}, deque([ini])
+    while fila:
+        u = fila.popleft()
+        for v in g[u]:
+            if v not in vistos:
+                vistos.add(v); fila.append(v)
+    return vistos
+```
+
+EXERCÍCIO PRÁTICO
+Implemente busca binária e ordenação por inserção e compare os tempos com 100 mil números. Use o console do navegador ou um arquivo Python/JS.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual é a complexidade da busca binária?
+A) O(n)
+B) O(log n)
+C) O(n²)
+GABARITO: B
+
+PERGUNTA 2: Qual estrutura segue a regra LIFO?
+A) Fila
+B) Pilha
+C) Tabela hash
+GABARITO: B
+
+==============================================================================
+MÓDULO 15: Redes e Sistemas Operacionais
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Entender como os computadores conversam e como o sistema operacional executa os programas explica por que um site fica lento, cai ou é inseguro. Base importante para qualquer programador.
+
+O QUE VOCÊ VAI APRENDER
+- Modelo OSI e TCP/IP
+- IP, DNS e portas
+- Processos e threads
+- Memória e cache
+
+EXEMPLO RÁPIDO
+```
+Aplicação (HTTP) → Transporte (TCP) → Internet (IP) → Enlace (Wi-Fi/cabo)
+```
+
+AULAS INDIVIDUAIS (4 aulas)
+
+AULA 1: Camadas: OSI e TCP/IP
+A comunicação é dividida em camadas, cada uma com uma função: aplicação (HTTP, DNS), transporte (TCP, UDP), internet (IP) e enlace/física (Wi-Fi, cabo). Cada camada conversa só com a vizinha, o que permite trocar uma tecnologia sem refazer o resto.
+
+EXEMPLO DE CÓDIGO
+```
+HTTP  → o que pedir (aplicação)
+TCP   → entrega confiável e em ordem (transporte)
+IP    → endereço e rota (internet)
+Wi-Fi → sinal no meio físico (enlace)
+```
+
+AULA 2: IP, DNS, portas e TCP vs UDP
+O IP identifica a máquina (IPv4 ou IPv6), o DNS traduz nomes em IPs, e as portas identificam o serviço (80 HTTP, 443 HTTPS, 22 SSH, 5432 PostgreSQL). O TCP garante entrega e ordem com um handshake de 3 vias; o UDP é mais rápido e sem garantias (vídeo, jogos, DNS).
+
+EXEMPLO DE CÓDIGO
+```
+$ nslookup exemplo.com
+-> 93.184.216.34
+$ curl -I https://exemplo.com
+HTTP/2 200
+```
+
+AULA 3: Processos, threads e concorrência
+Um processo é um programa em execução, com memória própria. Threads são fluxos dentro do processo e compartilham memória. O escalonador do SO divide o tempo da CPU entre eles. Várias threads mexendo no mesmo dado causam condição de corrida; o lock (mutex) resolve, mas pode gerar deadlock.
+
+EXEMPLO DE CÓDIGO
+```
+import threading
+cont = 0; lock = threading.Lock()
+def inc():
+    global cont
+    for _ in range(100000):
+        with lock: cont += 1
+ts = [threading.Thread(target=inc) for _ in range(4)]
+[t.start() for t in ts]; [t.join() for t in ts]
+```
+
+AULA 4: Memória, arquivos e cache
+A memória é uma hierarquia: registradores, cache da CPU, RAM, SSD e disco, do mais rápido e caro ao mais lento e barato. A memória virtual faz cada processo achar que tem a RAM toda. O cache de aplicação (Redis, CDN) guarda respostas prontas e costuma ser a otimização mais eficaz para sites.
+
+EXEMPLO DE CÓDIGO
+```
+Cache-Control: public, max-age=3600   # navegador/CDN
+REDIS: SET cursos '[...]' EX 60       # aplicação
+latência: RAM ~100ns, SSD ~100µs, rede ~100ms
+```
+
+EXERCÍCIO PRÁTICO
+Use ping, nslookup e traceroute (tracert no Windows) em um site e descreva o caminho que o pedido faz. Anote os resultados.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual é a porta padrão do HTTPS?
+A) 80
+B) 443
+C) 22
+GABARITO: B
+
+PERGUNTA 2: O que o DNS faz?
+A) Traduz nomes em IPs
+B) Criptografa dados
+C) Guarda cookies
+GABARITO: A
+
+==============================================================================
+MÓDULO 16: Banco de Dados (teoria)
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+A modelagem e a teoria por trás do SQL: como projetar tabelas sem redundância, garantir consistência e escolher entre banco relacional e NoSQL.
+
+O QUE VOCÊ VAI APRENDER
+- Modelo entidade-relacionamento
+- Normalização (1FN a 3FN)
+- ACID e isolamento
+- SQL x NoSQL
+
+EXEMPLO RÁPIDO
+```
+Aluno (1) ──< Matrícula >── (N) Curso
+```
+
+AULAS INDIVIDUAIS (4 aulas)
+
+AULA 1: Modelagem MER
+O MER descreve entidades (Aluno, Curso), atributos e relacionamentos 1:1, 1:N e N:N. O relacionamento N:N vira uma tabela associativa com duas chaves estrangeiras, como as matrículas entre alunos e cursos.
+
+EXEMPLO DE CÓDIGO
+```
+CREATE TABLE matriculas (
+  aluno_id INT REFERENCES alunos(id),
+  curso_id INT REFERENCES cursos(id),
+  PRIMARY KEY (aluno_id, curso_id)
+);
+```
+
+AULA 2: Normalização
+1FN: valores atômicos, sem listas na célula. 2FN: nenhum atributo depende de só parte da chave. 3FN: nenhum atributo depende de outro atributo que não seja chave. O objetivo é evitar redundância e anomalias; às vezes, por desempenho, desnormaliza-se de propósito.
+
+EXEMPLO DE CÓDIGO
+```
+-- Ruim (viola a 1FN e repete dados)
+pedidos(id, cliente, cidade, itens)  -- 'pão, leite'
+-- Bom
+clientes(id, nome, cidade_id)
+pedidos(id, cliente_id)
+itens_pedido(pedido_id, produto_id, qtd)
+```
+
+AULA 3: ACID e níveis de isolamento
+ACID: Atomicidade (tudo ou nada), Consistência (regras sempre válidas), Isolamento (transações simultâneas não se atrapalham) e Durabilidade (o confirmado não se perde). Níveis de isolamento mais altos evitam leituras sujas e fantasmas, mas reduzem a concorrência.
+
+EXEMPLO DE CÓDIGO
+```
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+BEGIN;
+  SELECT saldo FROM contas WHERE id = 1 FOR UPDATE;
+  UPDATE contas SET saldo = saldo - 50 WHERE id = 1;
+COMMIT;
+```
+
+AULA 4: SQL x NoSQL
+Bancos relacionais (PostgreSQL, MySQL) são ótimos para dados estruturados e transações. O NoSQL se divide em documentos (MongoDB), chave-valor (Redis), colunas (Cassandra) e grafos (Neo4j), e prioriza escala e flexibilidade. O teorema CAP diz que, com falha de rede, é preciso escolher entre consistência e disponibilidade.
+
+EXEMPLO DE CÓDIGO
+```
+// MongoDB: documento
+{ _id: 1, nome: 'Ana', cursos: ['HTML', 'SQL'] }
+// Redis: chave-valor
+SET sessao:42 '{"user":1}' EX 900
+```
+
+EXERCÍCIO PRÁTICO
+Modele o banco de uma escola online com MER, normalize até a 3FN e escreva as tabelas em SQL.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Em qual forma normal os valores devem ser atômicos?
+A) 1FN
+B) 3FN
+C) Nenhuma
+GABARITO: A
+
+PERGUNTA 2: O que significa o A do ACID?
+A) Atomicidade
+B) Autenticação
+C) Arquitetura
+GABARITO: A
+
+==============================================================================
+MÓDULO 17: Engenharia de Software
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Como transformar código em produto: levantar requisitos, modelar, escolher padrões e arquitetura, testar e trabalhar em equipe. É o que separa um projeto de estudo de um sistema que se vende e se mantém.
+
+O QUE VOCÊ VAI APRENDER
+- Requisitos, UML e ágil
+- SOLID e padrões de projeto
+- Testes e qualidade
+- Arquitetura e escalabilidade
+
+EXEMPLO RÁPIDO
+```
+Requisitos → Modelagem → Código → Testes → Deploy → Monitoramento
+```
+
+AULAS INDIVIDUAIS (5 aulas)
+
+AULA 1: Requisitos, UML e metodologias ágeis
+Requisitos funcionais dizem o que o sistema faz, e os não funcionais dizem como (desempenho, segurança). Histórias de usuário e UML (casos de uso, classes, sequência) comunicam isso. No Scrum, o trabalho vai em sprints curtas, com planejamento, daily, review e retrospectiva.
+
+EXEMPLO DE CÓDIGO
+```
+História: Como aluno, quero pagar com Pix
+         para liberar o curso na hora.
+Critérios: QR em até 3s; acesso liberado após confirmação.
+```
+
+AULA 2: SOLID
+S: uma classe, uma responsabilidade. O: aberta para extensão, fechada para modificação. L: subtipos substituem seus tipos base. I: interfaces pequenas e específicas. D: dependa de abstrações, não de implementações. Seguir o SOLID deixa o código mais fácil de testar e evoluir.
+
+EXEMPLO DE CÓDIGO
+```
+class Pedido:                      # S: só calcula
+    def total(self): ...
+class Notificador(Protocol):       # D: abstração
+    def enviar(self, msg): ...
+class Loja:
+    def __init__(self, n: Notificador): self.n = n
+```
+
+AULA 3: Padrões de projeto
+Padrões são soluções conhecidas para problemas comuns. Singleton: uma instância única. Factory: cria objetos sem expor a classe concreta. Observer: avisa os interessados quando algo muda (eventos). Strategy: troca algoritmos em tempo de execução. MVC e Repository organizam camadas.
+
+EXEMPLO DE CÓDIGO
+```
+class Frete:                       # Strategy
+    def __init__(self, estrategia): self.e = estrategia
+    def valor(self, peso): return self.e(peso)
+sedex = lambda p: 20 + p * 3
+print(Frete(sedex).valor(2))
+```
+
+AULA 4: Testes e qualidade
+A pirâmide de testes tem muitos testes unitários (rápidos), alguns de integração e poucos ponta a ponta. O TDD escreve o teste antes do código. Cobertura, revisão de código, linters e CI mantêm a qualidade e evitam regressões.
+
+EXEMPLO DE CÓDIGO
+```
+def desconto(p, pct): return p * (1 - pct / 100)
+
+def test_desconto():
+    assert desconto(100, 10) == 90
+    assert desconto(50, 0) == 50
+```
+
+AULA 5: Arquitetura e escalabilidade
+O monolito é simples de começar e publicar; microsserviços separam o sistema em serviços independentes, ganhando escala e autonomia, mas com mais complexidade. Para escalar: balanceador de carga, cache, filas de mensagens (RabbitMQ, Kafka), réplicas de leitura no banco, CDN e observabilidade (logs, métricas, alertas).
+
+EXEMPLO DE CÓDIGO
+```
+Usuário → CDN → Balanceador → [App 1 | App 2 | App 3]
+                                    ↓
+                          Cache (Redis) + Fila
+                                    ↓
+                       Banco principal → Réplicas
+```
+
+EXERCÍCIO PRÁTICO
+Escreva 5 histórias de usuário e um diagrama de classes simples para uma loja virtual. Não precisa ser perfeito — o importante é praticar o pensamento.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual princípio SOLID diz uma classe, uma responsabilidade?
+A) S
+B) O
+C) D
+GABARITO: A
+
+PERGUNTA 2: Qual é a base da pirâmide de testes?
+A) Testes unitários
+B) Testes manuais
+C) Testes de carga
+GABARITO: A
+
+==============================================================================
+MÓDULO 18: Instalar o App (PWA)
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Este curso pode ser instalado como aplicativo no celular e no computador. Assim você estuda offline, tem ícone na tela inicial e a experiência fica mais parecida com um app nativo. Abaixo estão os passos detalhados para cada sistema.
+
+O QUE VOCÊ VAI APRENDER
+- O que é PWA
+- Android (Chrome)
+- iOS (Safari)
+- Windows (Chrome / Edge)
+- macOS (Chrome / Safari)
+- Linux (Chrome / Firefox)
+- Firefox em geral
+
+EXEMPLO RÁPIDO
+```
+PWA = site que se comporta como app
+(HTTPS + manifest + service worker)
+```
+
+AULAS INDIVIDUAIS (7 aulas)
+
+AULA 1: O que é PWA e por que usar
+PWA (Progressive Web App) é um site que pode ser instalado, funciona offline (com cache) e aparece como app. Precisa ser servido em HTTPS (ou localhost). Depois de instalado, o progresso continua salvo no mesmo dispositivo.
+
+EXEMPLO DE CÓDIGO
+```
+Benefícios:
+• Ícone na tela inicial / menu iniciar
+• Abre em janela própria
+• Funciona parcial ou totalmente offline
+• Não precisa de loja de apps
+```
+
+AULA 2: Android — Google Chrome
+1. Abra o curso no Chrome.
+2. Toque no menu (⋮) no canto superior direito.
+3. Escolha “Instalar app” ou “Adicionar à tela inicial”.
+4. Confirme. O ícone aparece na tela inicial.
+Se a opção não aparecer, use “Adicionar à tela inicial” manualmente.
+
+EXEMPLO DE CÓDIGO
+```
+Chrome Android → ⋮ → Instalar app
+ou Adicionar à tela inicial
+```
+
+AULA 3: iPhone / iPad — Safari
+No iOS o Chrome não instala PWA da mesma forma. Use o Safari:
+1. Abra o curso no Safari.
+2. Toque no botão de Compartilhar (quadrado com seta para cima).
+3. Role e toque em “Adicionar à Tela de Início”.
+4. Confirme o nome e toque em Adicionar.
+O app abre em tela cheia, sem a barra do Safari.
+
+EXEMPLO DE CÓDIGO
+```
+Safari iOS → Compartilhar → Adicionar à Tela de Início
+```
+
+AULA 4: Windows — Chrome ou Edge
+1. Abra o curso no Chrome ou no Microsoft Edge.
+2. Na barra de endereço, clique no ícone de instalação (⊕ ou computador com seta) se aparecer.
+3. Ou vá em Menu (⋮) → “Instalar Curso Web Completo…” / “Aplicativos” → “Instalar este site como um aplicativo”.
+4. Confirme. O app aparece no Menu Iniciar e pode ser fixado na barra de tarefas.
+
+EXEMPLO DE CÓDIGO
+```
+Chrome/Edge Windows → ícone de instalar na barra
+ou ⋮ → Instalar app
+```
+
+AULA 5: macOS — Chrome ou Safari
+Chrome:
+1. Abra o curso.
+2. Menu ⋮ → “Instalar Curso Web…” ou ícone de instalação na barra.
+3. Confirme. O app vai para a pasta Aplicativos e o Launchpad.
+
+Safari (macOS Sonoma+):
+1. Arquivo → “Adicionar ao Dock” (ou compartilhe e adicione).
+2. O site vira um app no Dock.
+
+EXEMPLO DE CÓDIGO
+```
+Chrome Mac → ⋮ → Instalar
+Safari → Arquivo → Adicionar ao Dock
+```
+
+AULA 6: Linux — Chrome e Firefox
+Chrome / Chromium:
+1. Abra o curso.
+2. Menu ⋮ → “Instalar Curso Web Completo…” ou ícone na barra de endereço.
+3. Confirme. O atalho aparece no menu de aplicativos.
+
+Firefox:
+1. Abra o curso.
+2. Clique no ícone de “Instalar” na barra de endereço (se disponível) ou use o menu → “Instalar site como aplicativo” (versões recentes).
+3. Em algumas distros o Firefox cria um atalho .desktop.
+
+EXEMPLO DE CÓDIGO
+```
+Chrome Linux → ⋮ → Instalar app
+Firefox → ícone de instalação ou menu
+```
+
+AULA 7: Dicas gerais e solução de problemas
+• A instalação só funciona em HTTPS (ou localhost).
+• Se o botão “Instalar” não aparecer, use a opção manual “Adicionar à tela inicial” / “Instalar site como aplicativo”.
+• O progresso fica salvo no navegador daquele dispositivo. Use o código de recuperação se precisar reabrir no mesmo aparelho após limpar dados.
+• No iOS, atualizações do PWA às vezes exigem remover o ícone e adicionar de novo.
+
+EXEMPLO DE CÓDIGO
+```
+Problema comum: sem HTTPS → PWA não instala
+Solução: hospede em Netlify, Vercel, GitHub Pages ou similar
+```
+
+EXERCÍCIO PRÁTICO
+Instale o curso no seu dispositivo principal e teste abrir sem internet (depois do primeiro carregamento).
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: Qual navegador deve ser usado no iPhone para instalar o PWA corretamente?
+A) Chrome
+B) Safari
+C) Firefox
+GABARITO: B
+
+==============================================================================
+MÓDULO 19: Roteiro de estudo
+==============================================================================
+
+PARA QUE SERVE ESTE MÓDULO
+Uma ordem de estudo que evita travar: primeiro o que aparece na tela, depois a lógica, depois o servidor e os dados. Estude com constância (mesmo 40–60 minutos por dia) e faça os exercícios.
+
+O QUE VOCÊ VAI APRENDER
+- 1. HTML e CSS (2 a 4 semanas)
+- 2. JavaScript e DOM (4 a 6 semanas)
+- 3. Git e GitHub
+- 4. Python ou PHP + SQL (6 a 8 semanas)
+- 5. TypeScript e um framework (React)
+- 6. Publicar projetos: portfólio, lista de tarefas, blog com login, loja
+
+EXEMPLO RÁPIDO
+```
+HTML → CSS → JavaScript → Git
+   → Python/PHP → SQL → TypeScript → React
+```
+
+AULAS INDIVIDUAIS (2 aulas)
+
+AULA 1: Plano de 6 meses
+Estude 1 hora por dia e faça projetos em vez de só assistir aulas. Meses 1 e 2: HTML, CSS e JS. Mês 3: Git e GitHub. Meses 4 e 5: Python ou PHP com SQL. Mês 6: TypeScript, React e um projeto final publicado.
+
+EXEMPLO DE CÓDIGO
+```
+Mês 1-2: HTML + CSS + JS
+Mês 3: Git/GitHub
+Mês 4-5: Python/PHP + SQL
+Mês 6: TypeScript + projeto final
+```
+
+AULA 2: Projetos para o portfólio
+Projetos mostram o que você sabe fazer. Comece simples e aumente a dificuldade aos poucos. Qualidade e clareza valem mais que quantidade.
+
+EXEMPLO DE CÓDIGO
+```
+1. Página pessoal (HTML/CSS)
+2. Lista de tarefas (JS)
+3. Blog com login (Python/PHP + SQL)
+4. Loja com carrinho (tudo junto)
+```
+
+EXERCÍCIO PRÁTICO
+Escolha um projeto da lista e publique-o online, mesmo simples. O importante é terminar e colocar no ar.
+
+QUIZ — TESTE O QUE APRENDEU
+
+PERGUNTA 1: O que ajuda mais a aprender?
+A) Só assistir aulas
+B) Fazer projetos
+C) Decorar tags
+GABARITO: B
+
+==============================================================================
+FIM DO CONTEÚDO EXTRAÍDO
+==============================================================================
+
+OBSERVAÇÃO: Este TXT reúne os conteúdos que estavam cadastrados no arquivo HTML. O Studio AI deve usar este documento para reproduzir as aulas com padrão uniforme, mantendo o conteúdo original.

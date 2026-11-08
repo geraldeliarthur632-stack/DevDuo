@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'admin@devduo.local' ||
+        request.auth.token.email == 'dttgtdsfjurtjgf@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['id', 'name']) &&
+             data.keys().hasOnly([
+               'id', 'name', 'email', 'avatar', 'directCode', 'originalKey',
+               'xp', 'streak', 'lastActiveDate', 'gems', 'hearts', 'maxHearts',
+               'completedLessons', 'completedModules', 'currentModuleId',
+               'selectedLanguageId', 'isAdmin', 'isGuest', 'registeredAt',
+               'createdAt', 'updatedAt'
+             ]) &&
+             data.id is string && data.id.size() <= 128 &&
+             data.name is string && data.name.size() <= 100 &&
+             (!('email' in data) || (data.email is string && data.email.size() <= 200)) &&
+             (!('avatar' in data) || (data.avatar is string && data.avatar.size() <= 16)) &&
+             (!('originalKey' in data) || (data.originalKey is string && data.originalKey.size() <= 64)) &&
+             (!('xp' in data) || data.xp is number) &&
+             (!('streak' in data) || data.streak is number) &&
+             (!('gems' in data) || data.gems is number) &&
+             (!('hearts' in data) || data.hearts is number) &&
+             (!('maxHearts' in data) || data.maxHearts is number) &&
+             (!('currentModuleId' in data) || (data.currentModuleId is string && data.currentModuleId.size() <= 64)) &&
+             (!('selectedLanguageId' in data) || (data.selectedLanguageId is string && data.selectedLanguageId.size() <= 64)) &&
+             (!('isAdmin' in data) || data.isAdmin is bool) &&
+             (!('isGuest' in data) || data.isGuest is bool);
+    }
+
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) &&
+                       isValidId(userId) &&
+                       isValidUser(incoming()) &&
+                       incoming().id == userId &&
+                       (!('isAdmin' in incoming()) || incoming().isAdmin == false || isAdmin());
+      allow update: if isOwner(userId) &&
+                       isValidId(userId) &&
+                       isValidUser(incoming()) &&
+                       incoming().id == userId &&
+                       (!('isAdmin' in incoming()) || incoming().isAdmin == existing().isAdmin || isAdmin());
+      allow delete: if isOwner(userId) || isAdmin();
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>DevDuo - Curso Web Completo</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA router redirect:
+      // When a user navigates or reloads on a sub-route, redirect to the root index.html preserving URL params.
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      var repoPath = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
+      // Redirect back to root index
+      window.location.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?p=' +
+        encodeURIComponent(l.pathname.slice(repoPath.length) + l.search + l.hash)
+      );
+    </script>
+    <meta http-equiv="refresh" content="0;URL=./" />
+  </head>
+  <body>
+    <p>Redirecionando para DevDuo...</p>
+  </body>
+</html>

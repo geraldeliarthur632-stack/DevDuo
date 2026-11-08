@@ -1,0 +1,1807 @@
+[
+  {
+    "id": "mod-1",
+    "number": 1,
+    "title": "Como um site funciona",
+    "purpose": "Todo site tem três camadas: front-end (o que aparece no navegador), back-end (o servidor, que aplica regras e processa pedidos) e banco de dados (onde a informação fica guardada). Cada linguagem deste curso atua em uma dessas camadas. Entender isso evita muita confusão no começo.",
+    "whatYouWillLearn": [
+      "Cliente e servidor: o navegador pede, o servidor responde (protocolo HTTP)",
+      "Front-end: HTML + CSS + JavaScript",
+      "Back-end: Python, PHP e Node.js",
+      "Banco de dados: SQL",
+      "Domínio, hospedagem e HTTPS"
+    ],
+    "quickExample": "Navegador  → pede https://meusite.com/cursos\nServidor   → (Python/PHP) recebe o pedido\nBanco      → (SQL) devolve a lista de cursos\nServidor   → monta o HTML ou JSON e responde\nNavegador  → (HTML+CSS+JS) mostra a página",
+    "lessons": [
+      {
+        "id": "mod-1-lesson-1",
+        "number": 1,
+        "title": "Cliente, servidor e HTTP",
+        "explanation": "O navegador (cliente) envia um pedido HTTP e o servidor devolve uma resposta com um código: 200 (ok), 404 (não encontrado) ou 500 (erro no servidor). Métodos comuns: GET para ler e POST para enviar dados. Isso é a base de toda a web.",
+        "codeExample": "GET /cursos HTTP/1.1\nHost: meusite.com\n\nHTTP/1.1 200 OK\nContent-Type: text/html"
+      },
+      {
+        "id": "mod-1-lesson-2",
+        "number": 2,
+        "title": "Front-end, back-end e banco",
+        "explanation": "O front-end é o que o usuário vê (HTML, CSS, JS). O back-end (Python, PHP, Node) guarda as regras e a segurança. O banco (SQL) guarda os dados. O front-end nunca deve acessar o banco direto — sempre passa pelo back-end.",
+        "codeExample": "Front (JS) --fetch--> API (Python/PHP) --SQL--> Banco"
+      },
+      {
+        "id": "mod-1-lesson-3",
+        "number": 3,
+        "title": "Domínio, hospedagem e HTTPS",
+        "explanation": "O domínio é o endereço (ex: meusite.com), a hospedagem é o computador que guarda o site e o HTTPS criptografa a conexão (o cadeado no navegador). Para sites estáticos existem hospedagens gratuitas, como GitHub Pages e Netlify.",
+        "codeExample": "meusite.com -> DNS -> IP do servidor -> https (cadeado)"
+      }
+    ],
+    "practicalExercise": "Abra qualquer site, clique com o botão direito em Inspecionar e veja o HTML e o CSS dele. Não precisa entender tudo agora — só observe a estrutura.",
+    "quizzes": [
+      {
+        "id": "q-1-1",
+        "question": "Qual código HTTP indica página não encontrada?",
+        "options": [
+          {
+            "key": "A",
+            "text": "200"
+          },
+          {
+            "key": "B",
+            "text": "404"
+          },
+          {
+            "key": "C",
+            "text": "500"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-2",
+    "number": 2,
+    "title": "HTML",
+    "purpose": "Define a estrutura e o conteúdo da página: títulos, textos, imagens, links, listas, tabelas e formulários. É o esqueleto do site: sem HTML não existe página. Também ajuda o Google e leitores de tela a entender o conteúdo (acessibilidade e SEO).",
+    "whatYouWillLearn": [
+      "Tags e atributos",
+      "Semântica: header, nav, main, section, footer",
+      "Links e imagens (a, img, alt)",
+      "Listas e tabelas",
+      "Formulários: form, input, button",
+      "Acessibilidade e SEO: title, meta, alt"
+    ],
+    "quickExample": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head><title>Minha página</title></head>\n<body>\n  <h1>Olá, mundo!</h1>\n  <a href=\"contato.html\">Contato</a>\n</body>\n</html>",
+    "lessons": [
+      {
+        "id": "mod-2-lesson-1",
+        "number": 1,
+        "title": "Estrutura e texto",
+        "explanation": "Toda página começa com doctype, html, head (informações invisíveis) e body (o que aparece). Use h1 a h6 para títulos, com apenas um h1 por página, p para parágrafos, strong para ênfase e br para quebra de linha.",
+        "codeExample": "<body>\n  <h1>Meu blog</h1>\n  <p>Texto com <strong>destaque</strong>.</p>\n</body>"
+      },
+      {
+        "id": "mod-2-lesson-2",
+        "number": 2,
+        "title": "Links, imagens e listas",
+        "explanation": "O atributo href do link define o destino. O src da imagem define o arquivo, e o alt descreve a imagem para leitores de tela e para o Google. ul cria listas com marcadores, ol cria listas numeradas, e cada item vai dentro de li.",
+        "codeExample": "<a href='https://exemplo.com'>Visitar</a>\n<img src='foto.jpg' alt='Minha foto'>\n<ul>\n  <li>HTML</li>\n  <li>CSS</li>\n</ul>"
+      },
+      {
+        "id": "mod-2-lesson-3",
+        "number": 3,
+        "title": "Semântica e organização",
+        "explanation": "Em vez de usar só div, use header, nav, main, section, article e footer. Isso melhora a acessibilidade, ajuda o SEO e deixa o código mais fácil de ler e manter.",
+        "codeExample": "<header><nav>Menu</nav></header>\n<main>\n  <article><h2>Meu post</h2></article>\n</main>\n<footer>Meu site 2026</footer>"
+      },
+      {
+        "id": "mod-2-lesson-4",
+        "number": 4,
+        "title": "Formulários",
+        "explanation": "O form agrupa os campos e envia os dados ao servidor (action) pelo method GET ou POST. Cada input precisa de um label ligado pelo atributo for e de um name, que é a chave dos dados enviados. Tipos comuns: text, email, password, checkbox e submit.",
+        "codeExample": "<form action='/enviar' method='post'>\n  <label for='em'>E-mail</label>\n  <input id='em' name='email' type='email' required>\n  <button type='submit'>Enviar</button>\n</form>"
+      },
+      {
+        "id": "mod-2-lesson-5",
+        "number": 5,
+        "title": "Mídia, acessibilidade e SEO",
+        "explanation": "Use video e audio com controls, picture e srcset para imagens responsivas, aria-label em botões sem texto, e meta description e Open Graph para o Google e as redes sociais. Um bom HTML semântico já resolve boa parte do SEO.",
+        "codeExample": "<video controls src='aula.mp4'></video>\n<img srcset='p.jpg 480w, g.jpg 1200w' sizes='100vw' alt='Capa'>\n<button aria-label='Fechar'>X</button>\n<meta name='description' content='Curso de web'>"
+      }
+    ],
+    "practicalExercise": "Crie uma página de apresentação pessoal com título, uma foto (ou placeholder), lista de hobbies e um link. Salve como index.html e abra no navegador.",
+    "quizzes": [
+      {
+        "id": "q-2-1",
+        "question": "Qual tag define o título principal da página?",
+        "options": [
+          {
+            "key": "A",
+            "text": "<p>"
+          },
+          {
+            "key": "B",
+            "text": "<h1>"
+          },
+          {
+            "key": "C",
+            "text": "<head>"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-2-2",
+        "question": "Para que serve o atributo alt de uma imagem?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Mudar o tamanho"
+          },
+          {
+            "key": "B",
+            "text": "Descrever a imagem para leitores de tela e Google"
+          },
+          {
+            "key": "C",
+            "text": "Criar um link"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-3",
+    "number": 3,
+    "title": "CSS",
+    "purpose": "Controla toda a aparência: cores, fontes, espaçamentos, posicionamento e animações. Também faz o site se adaptar a celular, tablet e computador (design responsivo) e ao modo escuro. HTML é o conteúdo; CSS é o visual.",
+    "whatYouWillLearn": [
+      "Seletores: tag, classe e id",
+      "Box model: margin, padding, border",
+      "Flexbox e Grid para layouts",
+      "Media queries (responsivo)",
+      "Variáveis CSS e modo escuro",
+      "Transições e animações"
+    ],
+    "quickExample": ".card{\n  display:flex; gap:1rem;\n  padding:16px; border-radius:12px;\n  background:#fff;\n}\n@media (max-width:600px){\n  .card{flex-direction:column}\n}",
+    "lessons": [
+      {
+        "id": "mod-3-lesson-1",
+        "number": 1,
+        "title": "Seletores e cores",
+        "explanation": "O seletor escolhe quais elementos recebem o estilo: tag (p), classe (.destaque) ou id (#topo). As cores podem ser nomes, hexadecimal (#4f46e5) ou rgb. A cascata decide quem vence: o id pesa mais que a classe, e a classe pesa mais que a tag.",
+        "codeExample": "p{color:#333}\n.destaque{background:yellow}\n#topo{font-size:2rem}"
+      },
+      {
+        "id": "mod-3-lesson-2",
+        "number": 2,
+        "title": "Box model",
+        "explanation": "Todo elemento é uma caixa formada por conteúdo, padding (espaço interno), border (borda) e margin (espaço externo). Com box-sizing: border-box a largura já inclui padding e borda, o que facilita os cálculos.",
+        "codeExample": "*{box-sizing:border-box}\n.caixa{\n  width:300px; padding:16px;\n  border:1px solid #ccc; margin:20px auto;\n}"
+      },
+      {
+        "id": "mod-3-lesson-3",
+        "number": 3,
+        "title": "Flexbox e Grid",
+        "explanation": "O Flexbox organiza itens em uma direção (linha ou coluna) e é ideal para menus e cartões. O Grid organiza em linhas e colunas ao mesmo tempo, ideal para a página inteira ou para galerias.",
+        "codeExample": ".menu{display:flex; justify-content:space-between}\n.galeria{\n  display:grid;\n  grid-template-columns:repeat(3,1fr);\n  gap:12px;\n}"
+      },
+      {
+        "id": "mod-3-lesson-4",
+        "number": 4,
+        "title": "Responsivo e modo escuro",
+        "explanation": "As media queries aplicam estilos conforme a tela. Comece pelo celular e amplie para telas maiores (mobile-first). As variáveis CSS (--cor) permitem trocar o tema inteiro, inclusive com prefers-color-scheme.",
+        "codeExample": ":root{--bg:#fff; --tx:#111}\n@media (prefers-color-scheme:dark){\n  :root{--bg:#111; --tx:#eee}\n}\nbody{background:var(--bg); color:var(--tx)}"
+      },
+      {
+        "id": "mod-3-lesson-5",
+        "number": 5,
+        "title": "Posicionamento, transições e animações",
+        "explanation": "position (relative, absolute, fixed, sticky) controla onde o elemento fica, e z-index decide quem aparece na frente. transition suaviza mudanças e @keyframes cria animações; prefira animar transform e opacity, que são mais rápidos, e respeite prefers-reduced-motion.",
+        "codeExample": ".btn{transition:transform .2s}\n.btn:hover{transform:scale(1.05)}\n@keyframes pulso{50%{opacity:.5}}\n.alerta{animation:pulso 1s infinite}\n@media (prefers-reduced-motion:reduce){.alerta{animation:none}}"
+      }
+    ],
+    "practicalExercise": "Estilize sua página de apresentação e deixe-a bonita no celular. Use Flexbox ou Grid e teste redimensionando a janela do navegador.",
+    "quizzes": [
+      {
+        "id": "q-3-1",
+        "question": "Qual propriedade ativa o Flexbox?",
+        "options": [
+          {
+            "key": "A",
+            "text": "display:flex"
+          },
+          {
+            "key": "B",
+            "text": "flex:none"
+          },
+          {
+            "key": "C",
+            "text": "position:flex"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-3-2",
+        "question": "Qual é a ordem do box model, de dentro para fora?",
+        "options": [
+          {
+            "key": "A",
+            "text": "margin, border, padding, conteúdo"
+          },
+          {
+            "key": "B",
+            "text": "conteúdo, padding, border, margin"
+          },
+          {
+            "key": "C",
+            "text": "padding, conteúdo, margin, border"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-4",
+    "number": 4,
+    "title": "JavaScript",
+    "purpose": "Dá vida à página: reage a cliques, valida formulários, atualiza o conteúdo sem recarregar e busca dados de servidores (APIs). Roda no navegador e, com Node.js, também no servidor. É a linguagem mais importante da web hoje.",
+    "whatYouWillLearn": [
+      "Variáveis, tipos e operadores",
+      "Condições e laços",
+      "Funções",
+      "DOM: document.querySelector",
+      "Eventos: click, input, submit",
+      "fetch, JSON e async/await"
+    ],
+    "quickExample": "const btn = document.querySelector(\"#btn\");\nbtn.addEventListener(\"click\", () => {\n  document.querySelector(\"h1\").textContent = \"Você clicou!\";\n});",
+    "lessons": [
+      {
+        "id": "mod-4-lesson-1",
+        "number": 1,
+        "title": "Variáveis e tipos",
+        "explanation": "Use const para valores que não mudam e let para os que mudam; evite var. Os tipos principais são string, number, boolean, array e object. No começo, console.log é seu melhor amigo para testar.",
+        "codeExample": "const nome = 'Ana';\nlet idade = 20;\nconst aluno = { nome, notas: [8, 9] };\nconsole.log(nome + ' tem ' + idade + ' anos');"
+      },
+      {
+        "id": "mod-4-lesson-2",
+        "number": 2,
+        "title": "Condições, laços e funções",
+        "explanation": "if/else decide caminhos, e for e forEach repetem ações. Funções agrupam código reutilizável, e as arrow functions (=>) são a forma curta de escrevê-las.",
+        "codeExample": "const media = (a) => a.reduce((s, n) => s + n, 0) / a.length;\nif (media([8, 9]) >= 7) console.log('Aprovado');\n[1, 2, 3].forEach(n => console.log(n * 2));"
+      },
+      {
+        "id": "mod-4-lesson-3",
+        "number": 3,
+        "title": "DOM e eventos",
+        "explanation": "O DOM é a página vista como objetos. Com querySelector você pega um elemento, e com addEventListener ou onclick reage às ações do usuário, mudando textos, classes ou criando elementos novos.",
+        "codeExample": "const lista = document.querySelector('#lista');\ndocument.querySelector('#add').onclick = () => {\n  const li = document.createElement('li');\n  li.textContent = 'Novo item';\n  lista.append(li);\n};"
+      },
+      {
+        "id": "mod-4-lesson-4",
+        "number": 4,
+        "title": "fetch e async/await",
+        "explanation": "fetch busca dados de uma API pela internet. Com async/await o código espera a resposta sem travar a página, e try/catch trata erros de rede.",
+        "codeExample": "async function carregar() {\n  try {\n    const r = await fetch('https://api.exemplo.com/cursos');\n    const dados = await r.json();\n    console.log(dados);\n  } catch (e) { console.log('Erro', e); }\n}"
+      },
+      {
+        "id": "mod-4-lesson-5",
+        "number": 5,
+        "title": "DOM avançado e delegação de eventos",
+        "explanation": "A delegação coloca um único listener no elemento pai e usa event.target para saber qual filho foi clicado, o que funciona até para itens criados depois. O IntersectionObserver detecta quando um elemento aparece na tela (carregamento preguiçoso), e classList troca estilos.",
+        "codeExample": "document.querySelector('#lista').addEventListener('click', (e) => {\n  const li = e.target.closest('li');\n  if (li) li.classList.toggle('feito');\n});\nnew IntersectionObserver((es) => es.forEach(x => x.isIntersecting && console.log('visível')))\n  .observe(document.querySelector('#rodape'));"
+      },
+      {
+        "id": "mod-4-lesson-6",
+        "number": 6,
+        "title": "APIs: POST, erros e CORS",
+        "explanation": "Para enviar dados use fetch com method POST, header Content-Type e body em JSON. Sempre confira r.ok, porque o fetch só rejeita em falha de rede, não em erro 404 ou 500. O navegador bloqueia chamadas a outro domínio, a menos que a API ative o CORS.",
+        "codeExample": "const r = await fetch('/api/tarefas', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify({ titulo: 'Estudar' })\n});\nif (!r.ok) throw new Error('Erro ' + r.status);\nconst nova = await r.json();"
+      },
+      {
+        "id": "mod-4-lesson-7",
+        "number": 7,
+        "title": "Promises em detalhe",
+        "explanation": "Uma Promise tem três estados: pendente, resolvida ou rejeitada. then trata o sucesso, catch trata o erro, e Promise.all espera várias ao mesmo tempo, o que acelera chamadas independentes.",
+        "codeExample": "const esperar = (ms) => new Promise(ok => setTimeout(ok, ms));\nesperar(500).then(() => console.log('pronto'));\nconst [a, b] = await Promise.all([\n  fetch('/api/a').then(r => r.json()),\n  fetch('/api/b').then(r => r.json())\n]);"
+      },
+      {
+        "id": "mod-4-lesson-8",
+        "number": 8,
+        "title": "Classes, módulos e Web Storage",
+        "explanation": "Classes (class) trazem OOP ao JavaScript. Módulos ES (import e export) dividem o código em arquivos. O localStorage guarda dados simples no navegador, mas nunca guarde senhas ou tokens sensíveis nele.",
+        "codeExample": "export class Carrinho {\n  itens = [];\n  add(p) { this.itens.push(p); }\n  get total() { return this.itens.reduce((s, p) => s + p.preco, 0); }\n}\nlocalStorage.setItem('tema', 'escuro');"
+      }
+    ],
+    "practicalExercise": "Faça um contador com botões + e −. Mostre o número na tela e altere o valor a cada clique.",
+    "quizzes": [
+      {
+        "id": "q-4-1",
+        "question": "Qual palavra declara uma variável que não pode ser reatribuída?",
+        "options": [
+          {
+            "key": "A",
+            "text": "let"
+          },
+          {
+            "key": "B",
+            "text": "const"
+          },
+          {
+            "key": "C",
+            "text": "var"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-4-2",
+        "question": "Qual método faz um elemento reagir a um clique?",
+        "options": [
+          {
+            "key": "A",
+            "text": "addEventListener"
+          },
+          {
+            "key": "B",
+            "text": "querySelector"
+          },
+          {
+            "key": "C",
+            "text": "createElement"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-5",
+    "number": 5,
+    "title": "TypeScript",
+    "purpose": "É o JavaScript com tipos: o editor aponta erros antes de o site rodar. Muito usado em projetos grandes e em frameworks como React, Angular e Node.js. Depois de escrito, é convertido (compilado) para JavaScript puro.",
+    "whatYouWillLearn": [
+      "Tipos básicos e inferência",
+      "interface e type",
+      "Funções tipadas",
+      "Generics",
+      "Configuração: tsconfig.json"
+    ],
+    "quickExample": "interface Aluno { nome: string; nota: number }\n\nfunction media(a: Aluno[]): number {\n  return a.reduce((s, x) => s + x.nota, 0) / a.length;\n}",
+    "lessons": [
+      {
+        "id": "mod-5-lesson-1",
+        "number": 1,
+        "title": "Tipos básicos",
+        "explanation": "Você anota o tipo depois do nome: string, number, boolean, arrays e tuplas. O TypeScript também infere tipos sozinho, então nem tudo precisa de anotação. Se você guardar um tipo errado, o editor avisa na hora.",
+        "codeExample": "let nome: string = 'Ana';\nlet notas: number[] = [8, 9];\nlet ativo = true; // inferido: boolean\nnome = 5; // erro!"
+      },
+      {
+        "id": "mod-5-lesson-2",
+        "number": 2,
+        "title": "interface e type",
+        "explanation": "interface e type descrevem o formato de um objeto. Propriedades opcionais usam ?, e type permite uniões de valores possíveis.",
+        "codeExample": "interface Curso {\n  id: number;\n  titulo: string;\n  nivel?: 'basico' | 'avancado';\n}\nconst c: Curso = { id: 1, titulo: 'HTML' };"
+      },
+      {
+        "id": "mod-5-lesson-3",
+        "number": 3,
+        "title": "Funções tipadas",
+        "explanation": "Defina os tipos dos parâmetros e do retorno. Assim, chamar a função com argumentos errados vira erro antes de o site rodar.",
+        "codeExample": "function soma(a: number, b: number): number {\n  return a + b;\n}\nsoma(2, '3'); // erro de tipo"
+      },
+      {
+        "id": "mod-5-lesson-4",
+        "number": 4,
+        "title": "Generics e configuração",
+        "explanation": "Generics (<T>) criam funções que funcionam com vários tipos mantendo a segurança. O arquivo tsconfig.json define como compilar, e o comando tsc converte tudo em JavaScript.",
+        "codeExample": "function primeiro<T>(lista: T[]): T {\n  return lista[0];\n}\nconst n = primeiro([10, 20]); // number\n// terminal: npx tsc"
+      },
+      {
+        "id": "mod-5-lesson-5",
+        "number": 5,
+        "title": "Unions, narrowing e utility types",
+        "explanation": "Uma união (A | B) aceita vários tipos, e o narrowing (typeof, in) deixa o TypeScript saber qual é qual. Os utility types Partial, Pick, Omit e Record criam tipos novos a partir de tipos existentes. Prefira unknown a any.",
+        "codeExample": "type Id = number | string;\nfunction mostrar(id: Id) {\n  return typeof id === 'string' ? id.toUpperCase() : id.toFixed(0);\n}\ntype Edicao = Partial<Curso>;\ntype Resumo = Pick<Curso, 'id' | 'titulo'>;"
+      },
+      {
+        "id": "mod-5-lesson-6",
+        "number": 6,
+        "title": "Classes e generics em APIs",
+        "explanation": "Classes em TypeScript têm modificadores (public, private, readonly) e implementam interfaces. Combinadas com generics, criam respostas de API tipadas de ponta a ponta.",
+        "codeExample": "interface Resposta<T> { ok: boolean; dados: T }\nclass Servico<T> {\n  constructor(private url: string) {}\n  async buscar(): Promise<Resposta<T[]>> {\n    const r = await fetch(this.url);\n    return { ok: r.ok, dados: await r.json() };\n  }\n}"
+      }
+    ],
+    "practicalExercise": "Converta o contador do módulo anterior para TypeScript. Crie um arquivo .ts e use o comando tsc (ou um playground online) para ver os erros de tipo.",
+    "quizzes": [
+      {
+        "id": "q-5-1",
+        "question": "O que o TypeScript faz?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Roda direto no navegador sem conversão"
+          },
+          {
+            "key": "B",
+            "text": "Adiciona tipos ao JavaScript e aponta erros antes de rodar"
+          },
+          {
+            "key": "C",
+            "text": "Substitui o HTML"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-5-2",
+        "question": "Qual símbolo marca uma propriedade opcional?",
+        "options": [
+          {
+            "key": "A",
+            "text": "?"
+          },
+          {
+            "key": "B",
+            "text": "!"
+          },
+          {
+            "key": "C",
+            "text": "*"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-6",
+    "number": 6,
+    "title": "Python",
+    "purpose": "No site, roda no servidor (back-end) com Django, Flask ou FastAPI: recebe pedidos, aplica regras de negócio, conversa com o banco e devolve páginas ou JSON. Também é a linguagem líder em automação e análise de dados.",
+    "whatYouWillLearn": [
+      "Sintaxe, listas e dicionários",
+      "Funções, módulos e pip",
+      "Orientação a objetos",
+      "Flask/FastAPI: rotas e APIs",
+      "Ambiente virtual (venv)",
+      "Login e segurança básica"
+    ],
+    "quickExample": "from flask import Flask\napp = Flask(__name__)\n\n@app.route(\"/ola/<nome>\")\ndef ola(nome):\n    return f\"Olá, {nome}!\"",
+    "lessons": [
+      {
+        "id": "mod-6-lesson-1",
+        "number": 1,
+        "title": "Sintaxe e estruturas de dados",
+        "explanation": "Python usa indentação (recuo) para definir blocos, sem chaves. Listas guardam sequências e dicionários guardam pares chave-valor, formato parecido com o JSON das APIs.",
+        "codeExample": "curso = {'nome': 'Python', 'aulas': 12}\nnotas = [8, 9, 7]\nfor n in notas:\n    if n >= 7:\n        print('ok', n)"
+      },
+      {
+        "id": "mod-6-lesson-2",
+        "number": 2,
+        "title": "Funções, módulos e pip",
+        "explanation": "Funções usam def. Módulos são arquivos que você importa, e o pip instala bibliotecas de terceiros. Use um ambiente virtual (venv) para isolar as dependências de cada projeto.",
+        "codeExample": "def media(lista):\n    return sum(lista) / len(lista)\n\n# terminal:\n# python -m venv venv\n# pip install flask"
+      },
+      {
+        "id": "mod-6-lesson-3",
+        "number": 3,
+        "title": "Flask: rotas e JSON",
+        "explanation": "No Flask, cada rota liga uma URL a uma função. Retornar dados com jsonify cria uma API que o JavaScript do front-end consome com fetch.",
+        "codeExample": "from flask import Flask, jsonify\napp = Flask(__name__)\n\n@app.route('/api/cursos')\ndef cursos():\n    return jsonify(['HTML', 'CSS', 'Python'])"
+      },
+      {
+        "id": "mod-6-lesson-4",
+        "number": 4,
+        "title": "Banco de dados e segurança",
+        "explanation": "Conecte ao banco com sqlite3 ou SQLAlchemy e use sempre consultas com parâmetros. Guarde senhas somente com hash (por exemplo, werkzeug.security), nunca em texto puro.",
+        "codeExample": "import sqlite3\ncon = sqlite3.connect('site.db')\nemail = 'ana@exemplo.com'\ncur = con.execute('SELECT * FROM alunos WHERE email = ?', (email,))\nprint(cur.fetchone())"
+      },
+      {
+        "id": "mod-6-lesson-5",
+        "number": 5,
+        "title": "Orientação a objetos",
+        "explanation": "Classes agrupam dados e comportamento. __init__ cria o objeto, self é a própria instância, e a herança reaproveita código. Em projetos web, os modelos de dados costumam ser classes.",
+        "codeExample": "class Aluno:\n    def __init__(self, nome):\n        self.nome = nome\n    def saudar(self):\n        return 'Oi, ' + self.nome\n\nclass Monitor(Aluno):\n    def saudar(self):\n        return 'Monitor ' + super().saudar()"
+      },
+      {
+        "id": "mod-6-lesson-6",
+        "number": 6,
+        "title": "Django e testes",
+        "explanation": "O Django é um framework completo: já traz ORM (banco), painel admin, autenticação e proteção contra CSRF e XSS. Com o pytest você escreve testes automáticos para as suas funções.",
+        "codeExample": "# terminal\npip install django\ndjango-admin startproject site\npython manage.py runserver\n\n# teste.py\ndef test_media():\n    assert media([8, 6]) == 7"
+      }
+    ],
+    "practicalExercise": "Crie uma API que devolve uma lista de cursos em JSON. Teste no navegador ou com uma ferramenta como o Thunder Client / Postman.",
+    "quizzes": [
+      {
+        "id": "q-6-1",
+        "question": "Em Python, o que define um bloco de código?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Chaves {}"
+          },
+          {
+            "key": "B",
+            "text": "Indentação"
+          },
+          {
+            "key": "C",
+            "text": "Ponto e vírgula"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-6-2",
+        "question": "Qual ferramenta instala bibliotecas Python?",
+        "options": [
+          {
+            "key": "A",
+            "text": "pip"
+          },
+          {
+            "key": "B",
+            "text": "npm"
+          },
+          {
+            "key": "C",
+            "text": "sql"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-7",
+    "number": 7,
+    "title": "PHP",
+    "purpose": "Linguagem de servidor feita para a web: gera HTML dinâmico, processa formulários, controla sessões e login. É a base do WordPress, que ainda roda uma grande parte dos sites do mundo.",
+    "whatYouWillLearn": [
+      "Sintaxe e variáveis com $",
+      "Formulários: $_GET e $_POST",
+      "Sessões e cookies",
+      "MySQL com PDO",
+      "include e organização do projeto",
+      "Laravel (framework)"
+    ],
+    "quickExample": "<?php\n$nome = $_POST[\"nome\"] ?? \"visitante\";\necho \"Bem-vindo, \" . htmlspecialchars($nome);",
+    "lessons": [
+      {
+        "id": "mod-7-lesson-1",
+        "number": 1,
+        "title": "Sintaxe e variáveis",
+        "explanation": "O código PHP fica entre <?php e ?>. Variáveis começam com $ e o ponto (.) junta textos. O servidor executa o PHP e envia ao navegador só o HTML pronto.",
+        "codeExample": "<?php\n$nome = 'Ana';\n$idade = 20;\necho 'Olá, ' . $nome;\n?>"
+      },
+      {
+        "id": "mod-7-lesson-2",
+        "number": 2,
+        "title": "Formulários",
+        "explanation": "Os dados enviados chegam em $_POST (ou $_GET). Sempre valide e use htmlspecialchars antes de exibir, para evitar ataques XSS.",
+        "codeExample": "<?php\nif ($_SERVER['REQUEST_METHOD'] === 'POST') {\n  $email = trim($_POST['email'] ?? '');\n  echo 'Recebido: ' . htmlspecialchars($email);\n}"
+      },
+      {
+        "id": "mod-7-lesson-3",
+        "number": 3,
+        "title": "Sessões e login",
+        "explanation": "session_start() cria uma sessão para lembrar o usuário entre páginas. Para senhas, use password_hash ao cadastrar e password_verify ao entrar.",
+        "codeExample": "<?php\nsession_start();\n$hash = password_hash('minhasenha', PASSWORD_DEFAULT);\nif (password_verify('minhasenha', $hash)) {\n  $_SESSION['usuario'] = 'ana';\n}"
+      },
+      {
+        "id": "mod-7-lesson-4",
+        "number": 4,
+        "title": "MySQL com PDO",
+        "explanation": "O PDO conecta ao banco com segurança. Consultas preparadas (prepare e execute) impedem SQL injection. Depois do básico, o framework Laravel organiza projetos grandes.",
+        "codeExample": "<?php\n$pdo = new PDO('mysql:host=localhost;dbname=site', 'user', 'senha');\n$st = $pdo->prepare('SELECT * FROM alunos WHERE email = ?');\n$st->execute([$email]);\n$aluno = $st->fetch();"
+      },
+      {
+        "id": "mod-7-lesson-5",
+        "number": 5,
+        "title": "OOP, namespaces e Composer",
+        "explanation": "No PHP moderno o código vive em classes com namespaces, carregadas pelo autoload do Composer, o gerenciador de pacotes do PHP. O padrão MVC separa Model (dados), View (HTML) e Controller (lógica).",
+        "codeExample": "<?php\nnamespace App\\Models;\nclass Aluno {\n  public function __construct(private string $nome) {}\n  public function nome(): string { return $this->nome; }\n}\n// terminal: composer require vlucas/phpdotenv"
+      },
+      {
+        "id": "mod-7-lesson-6",
+        "number": 6,
+        "title": "Laravel: o essencial",
+        "explanation": "O Laravel traz rotas, Eloquent (ORM), Blade (templates), validação, autenticação e proteção CSRF prontas. Você cria uma rota e um controller e já tem uma página dinâmica.",
+        "codeExample": "// routes/web.php\nRoute::get('/cursos', [CursoController::class, 'index']);\n// CursoController\npublic function index() {\n  return view('cursos', ['lista' => Curso::all()]);\n}"
+      }
+    ],
+    "practicalExercise": "Monte um formulário de contato que exibe uma mensagem de agradecimento após o envio. Use htmlspecialchars para segurança.",
+    "quizzes": [
+      {
+        "id": "q-7-1",
+        "question": "Qual símbolo inicia uma variável em PHP?",
+        "options": [
+          {
+            "key": "A",
+            "text": "$"
+          },
+          {
+            "key": "B",
+            "text": "@"
+          },
+          {
+            "key": "C",
+            "text": "#"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-7-2",
+        "question": "O que evita SQL injection?",
+        "options": [
+          {
+            "key": "A",
+            "text": "echo"
+          },
+          {
+            "key": "B",
+            "text": "Consultas preparadas"
+          },
+          {
+            "key": "C",
+            "text": "include"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-8",
+    "number": 8,
+    "title": "SQL",
+    "purpose": "Linguagem para conversar com o banco de dados: guarda e busca usuários, produtos, pedidos e comentários. Todo site com login, loja ou blog depende de um banco.",
+    "whatYouWillLearn": [
+      "Tabelas, linhas e colunas",
+      "SELECT, WHERE, ORDER BY",
+      "INSERT, UPDATE, DELETE",
+      "JOIN: relacionar tabelas",
+      "Chave primária e estrangeira",
+      "Segurança: use consultas preparadas, nunca junte texto do usuário ao SQL"
+    ],
+    "quickExample": "SELECT nome, email\nFROM alunos\nWHERE ativo = 1\nORDER BY nome;",
+    "lessons": [
+      {
+        "id": "mod-8-lesson-1",
+        "number": 1,
+        "title": "Criar tabelas",
+        "explanation": "Um banco guarda dados em tabelas (colunas e linhas). Cada tabela tem uma chave primária (PRIMARY KEY), que identifica cada linha de forma única.",
+        "codeExample": "CREATE TABLE alunos (\n  id INTEGER PRIMARY KEY,\n  nome TEXT NOT NULL,\n  email TEXT UNIQUE\n);"
+      },
+      {
+        "id": "mod-8-lesson-2",
+        "number": 2,
+        "title": "Inserir e consultar",
+        "explanation": "INSERT adiciona linhas e SELECT lê dados. WHERE filtra, ORDER BY ordena e LIMIT restringe a quantidade de resultados.",
+        "codeExample": "INSERT INTO alunos (nome, email)\nVALUES ('Ana', 'ana@exemplo.com');\n\nSELECT nome FROM alunos\nWHERE email LIKE '%@exemplo.com'\nORDER BY nome LIMIT 10;"
+      },
+      {
+        "id": "mod-8-lesson-3",
+        "number": 3,
+        "title": "Atualizar e apagar",
+        "explanation": "UPDATE altera linhas e DELETE remove. Sempre use WHERE: sem ele, o comando afeta a tabela inteira.",
+        "codeExample": "UPDATE alunos SET nome = 'Ana Lima' WHERE id = 1;\nDELETE FROM alunos WHERE id = 2;"
+      },
+      {
+        "id": "mod-8-lesson-4",
+        "number": 4,
+        "title": "JOIN e agregações",
+        "explanation": "A chave estrangeira liga tabelas, e o JOIN junta os dados delas numa consulta. COUNT, SUM e AVG com GROUP BY resumem os dados.",
+        "codeExample": "SELECT a.nome, COUNT(m.id) AS cursos\nFROM alunos a\nJOIN matriculas m ON m.aluno_id = a.id\nGROUP BY a.nome;"
+      },
+      {
+        "id": "mod-8-lesson-5",
+        "number": 5,
+        "title": "JOINs: INNER, LEFT e subconsultas",
+        "explanation": "INNER JOIN traz só as linhas com par nas duas tabelas. LEFT JOIN traz todas as da esquerda, mesmo sem par (vindo NULL). Subconsultas colocam um SELECT dentro de outro, e HAVING filtra grupos.",
+        "codeExample": "SELECT a.nome, COUNT(m.id) AS total\nFROM alunos a\nLEFT JOIN matriculas m ON m.aluno_id = a.id\nGROUP BY a.nome\nHAVING COUNT(m.id) = 0;\n\nSELECT nome FROM alunos\nWHERE id IN (SELECT aluno_id FROM matriculas);"
+      },
+      {
+        "id": "mod-8-lesson-6",
+        "number": 6,
+        "title": "Views, índices e EXPLAIN",
+        "explanation": "Uma view guarda uma consulta com nome, facilitando relatórios. Índices aceleram buscas, mas deixam as escritas mais lentas. O EXPLAIN mostra como o banco executa a consulta e ajuda a achar gargalos.",
+        "codeExample": "CREATE VIEW ativos AS\n  SELECT * FROM alunos WHERE ativo = 1;\nCREATE INDEX idx_mat ON matriculas(aluno_id);\nEXPLAIN SELECT * FROM matriculas WHERE aluno_id = 5;"
+      }
+    ],
+    "practicalExercise": "Modele as tabelas alunos e cursos e liste os cursos de um aluno com JOIN. Pratique no SQLite online ou em um cliente gráfico.",
+    "quizzes": [
+      {
+        "id": "q-8-1",
+        "question": "Qual comando lê dados?",
+        "options": [
+          {
+            "key": "A",
+            "text": "SELECT"
+          },
+          {
+            "key": "B",
+            "text": "INSERT"
+          },
+          {
+            "key": "C",
+            "text": "DROP"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-8-2",
+        "question": "O que acontece em um DELETE sem WHERE?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Nada"
+          },
+          {
+            "key": "B",
+            "text": "Apaga todas as linhas da tabela"
+          },
+          {
+            "key": "C",
+            "text": "Sempre dá erro"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-9",
+    "number": 9,
+    "title": "Node.js",
+    "purpose": "Permite usar JavaScript no servidor. Cria APIs, sistemas em tempo real e ferramentas de linha de comando, e usa o npm, o maior repositório de pacotes do mundo.",
+    "whatYouWillLearn": [
+      "Módulos e npm",
+      "API REST com Express",
+      "Promises e async/await",
+      "WebSockets"
+    ],
+    "quickExample": "const express = require('express');\nconst app = express();\napp.get('/', (req, res) => res.send('Olá!'));\napp.listen(3000);",
+    "lessons": [
+      {
+        "id": "mod-9-lesson-1",
+        "number": 1,
+        "title": "Módulos e npm",
+        "explanation": "npm init cria o projeto (package.json) e npm install baixa pacotes. Com require ou import você divide o código em arquivos reutilizáveis.",
+        "codeExample": "npm init -y\nnpm install express\n// soma.js\nexports.soma = (a, b) => a + b;"
+      },
+      {
+        "id": "mod-9-lesson-2",
+        "number": 2,
+        "title": "API REST com Express",
+        "explanation": "REST usa URLs para recursos e métodos HTTP para ações: GET lê, POST cria, PUT altera e DELETE remove. O Express liga cada rota a uma função.",
+        "codeExample": "app.use(express.json());\nconst tarefas = [];\napp.get('/tarefas', (req, res) => res.json(tarefas));\napp.post('/tarefas', (req, res) => {\n  tarefas.push(req.body);\n  res.status(201).json(req.body);\n});"
+      },
+      {
+        "id": "mod-9-lesson-3",
+        "number": 3,
+        "title": "Promises e async/await",
+        "explanation": "O Node usa um event loop: operações lentas (arquivos, rede, banco) não travam o servidor. Uma Promise representa um resultado futuro, e async/await a deixa com cara de código comum.",
+        "codeExample": "const fs = require('fs/promises');\nasync function ler() {\n  const txt = await fs.readFile('dados.json', 'utf8');\n  return JSON.parse(txt);\n}\nPromise.all([ler(), ler()]).then(console.log);"
+      },
+      {
+        "id": "mod-9-lesson-4",
+        "number": 4,
+        "title": "WebSockets",
+        "explanation": "HTTP é pedido e resposta. O WebSocket mantém a conexão aberta nos dois sentidos, ideal para chat, jogos e notificações em tempo real.",
+        "codeExample": "const { WebSocketServer } = require('ws');\nconst wss = new WebSocketServer({ port: 8080 });\nwss.on('connection', (ws) => {\n  ws.on('message', (m) => ws.send('eco: ' + m));\n});"
+      },
+      {
+        "id": "mod-9-lesson-5",
+        "number": 5,
+        "title": "Middlewares, validação e erros",
+        "explanation": "Middleware é uma função que roda entre o pedido e a resposta: logs, autenticação, validação. Centralize os erros em um middleware final e valide toda entrada (por exemplo, com zod ou joi).",
+        "codeExample": "app.use((req, res, next) => { console.log(req.method, req.url); next(); });\napp.post('/tarefas', (req, res) => {\n  if (!req.body.titulo) return res.status(400).json({ erro: 'titulo obrigatório' });\n  res.sendStatus(201);\n});\napp.use((err, req, res, next) => res.status(500).json({ erro: 'falha interna' }));"
+      },
+      {
+        "id": "mod-9-lesson-6",
+        "number": 6,
+        "title": "Ambiente, CORS e segurança",
+        "explanation": "Guarde segredos em variáveis de ambiente (arquivo .env fora do Git). O CORS define quais sites podem chamar a sua API pelo navegador, e o helmet adiciona cabeçalhos de segurança.",
+        "codeExample": "require('dotenv').config();\nconst cors = require('cors');\nconst helmet = require('helmet');\napp.use(helmet());\napp.use(cors({ origin: 'https://meusite.com' }));\nconst segredo = process.env.JWT_SEGREDO;"
+      }
+    ],
+    "practicalExercise": "Crie uma API de tarefas com GET e POST. Teste as rotas no navegador e com uma ferramenta de API.",
+    "quizzes": [
+      {
+        "id": "q-9-1",
+        "question": "Qual método HTTP cria um recurso novo?",
+        "options": [
+          {
+            "key": "A",
+            "text": "GET"
+          },
+          {
+            "key": "B",
+            "text": "POST"
+          },
+          {
+            "key": "C",
+            "text": "DELETE"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-9-2",
+        "question": "O que o WebSocket oferece?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Conexão aberta nos dois sentidos"
+          },
+          {
+            "key": "B",
+            "text": "Só pedido e resposta"
+          },
+          {
+            "key": "C",
+            "text": "Um banco de dados"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-10",
+    "number": 10,
+    "title": "Java",
+    "purpose": "Linguagem forte, tipada e orientada a objetos, muito usada em sistemas empresariais e bancos. Na web roda no servidor, geralmente com Spring Boot, e também em apps Android.",
+    "whatYouWillLearn": [
+      "Classes e objetos (OOP)",
+      "Herança, interfaces e polimorfismo",
+      "Generics e coleções",
+      "Spring Boot e JDBC"
+    ],
+    "quickExample": "public class Ola {\n  public static void main(String[] args) {\n    System.out.println(\"Olá, web!\");\n  }\n}",
+    "lessons": [
+      {
+        "id": "mod-10-lesson-1",
+        "number": 1,
+        "title": "Classes e objetos",
+        "explanation": "A OOP organiza o código em classes (modelo) e objetos (instâncias). O encapsulamento esconde os dados com private e expõe só o necessário por métodos.",
+        "codeExample": "class Aluno {\n  private String nome;\n  Aluno(String nome) { this.nome = nome; }\n  String getNome() { return nome; }\n}\nAluno a = new Aluno(\"Ana\");"
+      },
+      {
+        "id": "mod-10-lesson-2",
+        "number": 2,
+        "title": "Herança, interfaces e polimorfismo",
+        "explanation": "A herança (extends) reaproveita código. A interface define um contrato que várias classes cumprem de formas diferentes, e o polimorfismo permite tratá-las do mesmo jeito.",
+        "codeExample": "interface Pagavel { double valor(); }\nclass Curso implements Pagavel {\n  public double valor() { return 99.9; }\n}\nPagavel p = new Curso();"
+      },
+      {
+        "id": "mod-10-lesson-3",
+        "number": 3,
+        "title": "Generics e coleções",
+        "explanation": "Generics (<T>) deixam classes e métodos seguros para vários tipos, sem conversões. As coleções mais usadas são List, Set e Map.",
+        "codeExample": "List<String> nomes = new ArrayList<>();\nnomes.add(\"Ana\");\nMap<Integer, String> mapa = new HashMap<>();\nmapa.put(1, \"Java\");\nnomes.forEach(System.out::println);"
+      },
+      {
+        "id": "mod-10-lesson-4",
+        "number": 4,
+        "title": "Spring Boot e JDBC",
+        "explanation": "O Spring Boot cria uma API com poucas linhas, usando anotações. Com JDBC ou JPA você acessa o banco, sempre com PreparedStatement para evitar SQL injection.",
+        "codeExample": "@RestController\nclass CursoController {\n  @GetMapping(\"/cursos\")\n  List<String> listar() {\n    return List.of(\"HTML\", \"Java\");\n  }\n}"
+      },
+      {
+        "id": "mod-10-lesson-5",
+        "number": 5,
+        "title": "Streams, Optional e exceções",
+        "explanation": "Streams filtram e transformam coleções de forma declarativa. Optional evita NullPointerException, e try/catch trata erros. Exceções verificadas precisam ser tratadas ou declaradas com throws.",
+        "codeExample": "List<Integer> notas = List.of(5, 8, 9);\nList<Integer> boas = notas.stream().filter(n -> n >= 7).toList();\nOptional<String> nome = Optional.ofNullable(buscar());\nSystem.out.println(nome.orElse(\"sem nome\"));"
+      },
+      {
+        "id": "mod-10-lesson-6",
+        "number": 6,
+        "title": "Spring: camadas e JPA",
+        "explanation": "No Spring organize o código em Controller (HTTP), Service (regras) e Repository (banco). O JPA mapeia classes para tabelas, e @Transactional garante que uma operação grave tudo ou nada.",
+        "codeExample": "@Entity class Curso { @Id @GeneratedValue Long id; String titulo; }\ninterface CursoRepo extends JpaRepository<Curso, Long> {}\n@Service class CursoService {\n  @Transactional void criar(Curso c) { repo.save(c); }\n}"
+      }
+    ],
+    "practicalExercise": "Crie uma API Spring Boot com GET /cursos. Siga o guia oficial de “Spring Initializr” se for a primeira vez.",
+    "quizzes": [
+      {
+        "id": "q-10-1",
+        "question": "Qual palavra faz uma classe herdar de outra?",
+        "options": [
+          {
+            "key": "A",
+            "text": "extends"
+          },
+          {
+            "key": "B",
+            "text": "implements"
+          },
+          {
+            "key": "C",
+            "text": "import"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-10-2",
+        "question": "O que o PreparedStatement ajuda a evitar?",
+        "options": [
+          {
+            "key": "A",
+            "text": "SQL injection"
+          },
+          {
+            "key": "B",
+            "text": "Erros de sintaxe"
+          },
+          {
+            "key": "C",
+            "text": "Lentidão"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-11",
+    "number": 11,
+    "title": "C#/.NET",
+    "purpose": "Linguagem moderna da Microsoft, tipada e orientada a objetos. Com ASP.NET Core cria sites e APIs rápidos e multiplataforma, e também é usada em jogos com Unity.",
+    "whatYouWillLearn": [
+      "Sintaxe, classes e OOP",
+      "async/await e LINQ",
+      "ASP.NET Core Minimal API",
+      "Entity Framework e transações"
+    ],
+    "quickExample": "var app = WebApplication.CreateBuilder(args).Build();\napp.MapGet(\"/\", () => \"Olá, .NET!\");\napp.Run();",
+    "lessons": [
+      {
+        "id": "mod-11-lesson-1",
+        "number": 1,
+        "title": "Sintaxe e OOP",
+        "explanation": "C# usa classes, propriedades (get e set), herança e interfaces. Os records são ótimos para dados imutáveis.",
+        "codeExample": "record Aluno(string Nome, int Nota);\nclass Curso {\n  public string Titulo { get; set; } = \"\";\n}\nvar a = new Aluno(\"Ana\", 9);"
+      },
+      {
+        "id": "mod-11-lesson-2",
+        "number": 2,
+        "title": "async/await e LINQ",
+        "explanation": "Task representa uma operação assíncrona, e await espera o resultado sem travar. O LINQ filtra e transforma coleções com poucas linhas.",
+        "codeExample": "var notas = new[] { 5, 8, 9 };\nvar boas = notas.Where(n => n >= 7).ToList();\nasync Task<string> BaixarAsync(HttpClient c) =>\n  await c.GetStringAsync(\"https://exemplo.com\");"
+      },
+      {
+        "id": "mod-11-lesson-3",
+        "number": 3,
+        "title": "ASP.NET Core Minimal API",
+        "explanation": "Cada rota liga um método HTTP a uma função. O ASP.NET converte objetos em JSON automaticamente e já traz autenticação e injeção de dependência.",
+        "codeExample": "var tarefas = new List<string>();\napp.MapGet(\"/tarefas\", () => tarefas);\napp.MapPost(\"/tarefas\", (string t) => {\n  tarefas.Add(t);\n  return Results.Created(\"/tarefas\", t);\n});"
+      },
+      {
+        "id": "mod-11-lesson-4",
+        "number": 4,
+        "title": "Entity Framework e transações",
+        "explanation": "O Entity Framework mapeia classes para tabelas e gera SQL parametrizado por você. O SaveChanges é transacional: ou grava tudo, ou nada.",
+        "codeExample": "using var db = new AppDb();\ndb.Alunos.Add(new Aluno { Nome = \"Ana\" });\ndb.SaveChanges();\nvar lista = db.Alunos.Where(a => a.Nome == \"Ana\").ToList();"
+      },
+      {
+        "id": "mod-11-lesson-5",
+        "number": 5,
+        "title": "Injeção de dependência e interfaces",
+        "explanation": "O ASP.NET Core tem injeção de dependência embutida: você registra serviços (AddScoped) e os recebe nos parâmetros, o que facilita testes e a troca de implementação.",
+        "codeExample": "interface IEmail { void Enviar(string para); }\nclass EmailSmtp : IEmail { public void Enviar(string p) { /* ... */ } }\nbuilder.Services.AddScoped<IEmail, EmailSmtp>();\napp.MapPost(\"/avisar\", (IEmail e) => { e.Enviar(\"a@b.com\"); return Results.Ok(); });"
+      },
+      {
+        "id": "mod-11-lesson-6",
+        "number": 6,
+        "title": "Generics, delegates e eventos",
+        "explanation": "Generics em C# criam classes reutilizáveis com segurança de tipos. Delegates (Func e Action) guardam funções em variáveis, e eventos permitem que objetos avisem outros quando algo acontece.",
+        "codeExample": "class Caixa<T> { public T Valor { get; set; } }\nFunc<int, int> dobro = x => x * 2;\nclass Pedido {\n  public event Action<string>? Pago;\n  public void Pagar() => Pago?.Invoke(\"ok\");\n}"
+      }
+    ],
+    "practicalExercise": "Crie uma API ASP.NET Core de tarefas com GET e POST. Use o template Minimal API do Visual Studio ou do comando dotnet.",
+    "quizzes": [
+      {
+        "id": "q-11-1",
+        "question": "Qual palavra espera uma operação assíncrona?",
+        "options": [
+          {
+            "key": "A",
+            "text": "await"
+          },
+          {
+            "key": "B",
+            "text": "yield"
+          },
+          {
+            "key": "C",
+            "text": "sync"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-11-2",
+        "question": "O que o LINQ faz?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Consulta e transforma coleções"
+          },
+          {
+            "key": "B",
+            "text": "Cria páginas HTML"
+          },
+          {
+            "key": "C",
+            "text": "Compila CSS"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-12",
+    "number": 12,
+    "title": "Web e Engenharia",
+    "purpose": "Reúne o que faz um site ser seguro, rápido e profissional: HTTP/HTTPS, REST, banco avançado, segurança, autenticação, Git, CI/CD, PWA, deploy e frameworks. Este é um dos módulos mais importantes para quem quer trabalhar na área.",
+    "whatYouWillLearn": [
+      "HTTP, HTTPS e REST",
+      "Transações e índices",
+      "XSS, CSRF e SQL Injection",
+      "Autenticação e autorização",
+      "Git/GitHub, CI/CD e deploy",
+      "PWA, Service Workers e frameworks"
+    ],
+    "quickExample": "Cliente → HTTPS → API REST → Autenticação → Regras → Banco (transação)",
+    "lessons": [
+      {
+        "id": "mod-12-lesson-1",
+        "number": 1,
+        "title": "HTTP, HTTPS e REST",
+        "explanation": "O HTTP define como cliente e servidor conversam. O HTTPS adiciona criptografia (TLS) e protege senhas em trânsito. Uma API REST usa URLs de recursos, métodos (GET, POST, PUT, DELETE) e códigos de status (200, 201, 400, 401, 404, 500).",
+        "codeExample": "GET    /cursos     → lista (200)\nPOST   /cursos     → cria (201)\nPUT    /cursos/5   → altera (200)\nDELETE /cursos/5   → remove (204)"
+      },
+      {
+        "id": "mod-12-lesson-2",
+        "number": 2,
+        "title": "Banco avançado: transações e índices",
+        "explanation": "Uma transação agrupa comandos em uma unidade: ou todos acontecem (COMMIT) ou nenhum (ROLLBACK), garantindo consistência (ACID). Índices aceleram buscas em colunas muito consultadas.",
+        "codeExample": "BEGIN;\nUPDATE contas SET saldo = saldo - 100 WHERE id = 1;\nUPDATE contas SET saldo = saldo + 100 WHERE id = 2;\nCOMMIT;\nCREATE INDEX idx_email ON alunos(email);"
+      },
+      {
+        "id": "mod-12-lesson-3",
+        "number": 3,
+        "title": "Segurança: XSS, CSRF e SQL Injection",
+        "explanation": "XSS é injetar script na página: escape tudo que o usuário digita (textContent, htmlspecialchars). CSRF é fazer o navegador do usuário enviar um pedido sem ele saber: use tokens CSRF e cookies SameSite. SQL Injection é inserir SQL em um campo: use sempre consultas parametrizadas.",
+        "codeExample": "// ERRADO (SQL Injection)\nconsulta = \"SELECT * FROM u WHERE email = '\" + email + \"'\"\n// CERTO\ndb.query('SELECT * FROM u WHERE email = ?', [email]);\n// XSS: use textContent, não innerHTML\nel.textContent = comentario;"
+      },
+      {
+        "id": "mod-12-lesson-4",
+        "number": 4,
+        "title": "Autenticação e autorização",
+        "explanation": "Autenticação confirma quem é o usuário (senha com hash bcrypt ou argon2, e MFA). Autorização define o que ele pode fazer (papéis como admin e aluno). Sessões usam cookies HttpOnly e Secure; JWT é um token assinado enviado a cada pedido.",
+        "codeExample": "const ok = await bcrypt.compare(senha, usuario.hash);\nif (!ok) return res.status(401).end();\nif (usuario.papel !== 'admin') return res.status(403).end();"
+      },
+      {
+        "id": "mod-12-lesson-5",
+        "number": 5,
+        "title": "Git e GitHub",
+        "explanation": "O Git guarda o histórico do código e permite trabalhar em branches (ramos). O GitHub hospeda o repositório e organiza o trabalho em equipe com pull requests e code review.",
+        "codeExample": "git init\ngit add .\ngit commit -m 'primeira versão'\ngit switch -c nova-funcao\ngit push -u origin nova-funcao"
+      },
+      {
+        "id": "mod-12-lesson-6",
+        "number": 6,
+        "title": "CI/CD e deploy",
+        "explanation": "CI (integração contínua) roda os testes a cada push. CD (entrega contínua) publica a versão aprovada. O GitHub Actions faz isso com um arquivo YAML. Para publicar: sites estáticos no GitHub Pages ou Netlify, back-ends no Render, Railway ou com Docker.",
+        "codeExample": "# .github/workflows/ci.yml\non: [push]\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - run: npm ci && npm test"
+      },
+      {
+        "id": "mod-12-lesson-7",
+        "number": 7,
+        "title": "PWA e Service Workers",
+        "explanation": "Um PWA é um site que se instala como app e funciona offline. Precisa de HTTPS, de um manifest.json (nome e ícones) e de um Service Worker, script que intercepta requisições e usa cache.",
+        "codeExample": "// sw.js\nself.addEventListener('install', e =>\n  e.waitUntil(caches.open('v1').then(c => c.addAll(['/', '/app.js']))));\nself.addEventListener('fetch', e =>\n  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request))));\n// registrar: navigator.serviceWorker.register('/sw.js')"
+      },
+      {
+        "id": "mod-12-lesson-8",
+        "number": 8,
+        "title": "Frameworks",
+        "explanation": "Frameworks aceleram o desenvolvimento. Front-end: React, Vue e Angular. Back-end: Express, Flask, Django, Laravel, Spring Boot e ASP.NET Core. Aprenda os fundamentos antes e escolha um framework por camada.",
+        "codeExample": "function Contador() {\n  const [n, setN] = useState(0);\n  return <button onClick={() => setN(n + 1)}>{n}</button>;\n}"
+      },
+      {
+        "id": "mod-12-lesson-9",
+        "number": 9,
+        "title": "XSS na prática",
+        "explanation": "Existem XSS refletido, armazenado (o mais perigoso) e baseado em DOM. Defesas: escapar a saída conforme o contexto, evitar innerHTML com dados do usuário, validar as entradas e ativar uma Content-Security-Policy (CSP).",
+        "codeExample": "// Vulnerável\nel.innerHTML = '<p>' + comentario + '</p>';\n// Seguro\nconst p = document.createElement('p');\np.textContent = comentario;\n// Cabeçalho HTTP\nContent-Security-Policy: default-src 'self'"
+      },
+      {
+        "id": "mod-12-lesson-10",
+        "number": 10,
+        "title": "CSRF na prática",
+        "explanation": "No CSRF, um site malicioso aproveita o cookie de login do usuário para disparar uma ação. Defesas: token CSRF único por sessão, cookies SameSite=Lax ou Strict e nunca alterar dados com GET.",
+        "codeExample": "<form method='post' action='/transferir'>\n  <input type='hidden' name='csrf' value='TOKEN_DA_SESSAO'>\n</form>\n// Cookie\nSet-Cookie: sid=abc; HttpOnly; Secure; SameSite=Lax"
+      },
+      {
+        "id": "mod-12-lesson-11",
+        "number": 11,
+        "title": "SQL Injection na prática",
+        "explanation": "Quando o texto do usuário vira parte do SQL, ele pode alterar a consulta (por exemplo, com ' OR 1=1). A defesa é separar código e dados com consultas parametrizadas ou ORM, e dar ao usuário do banco só as permissões necessárias.",
+        "codeExample": "# Python: o parâmetro vai separado do SQL\ncur.execute('SELECT * FROM users WHERE email = %s', (email,))\n// Java\nPreparedStatement ps = con.prepareStatement(\"SELECT * FROM users WHERE email = ?\");\nps.setString(1, email);"
+      },
+      {
+        "id": "mod-12-lesson-12",
+        "number": 12,
+        "title": "Senhas, sessões e JWT",
+        "explanation": "Nunca guarde senhas em texto: use hash lento com sal (bcrypt ou argon2). Na sessão, o servidor guarda o estado e o cookie só tem o ID. No JWT, o token assinado carrega os dados: use validade curta, guarde em cookie HttpOnly e valide a assinatura em todo pedido.",
+        "codeExample": "const hash = await bcrypt.hash(senha, 12);\nconst token = jwt.sign({ id: u.id, papel: u.papel }, SEGREDO, { expiresIn: '15m' });\nres.cookie('t', token, { httpOnly: true, secure: true, sameSite: 'lax' });"
+      },
+      {
+        "id": "mod-12-lesson-13",
+        "number": 13,
+        "title": "Autorização (RBAC)",
+        "explanation": "A autorização acontece no servidor, a cada pedido. No RBAC cada usuário tem um papel (admin, editor, leitor) e cada papel tem permissões. Nunca confie só em esconder botões no front-end.",
+        "codeExample": "const exigir = (papel) => (req, res, next) =>\n  req.user.papel === papel ? next() : res.sendStatus(403);\napp.delete('/posts/:id', exigir('admin'), apagarPost);"
+      },
+      {
+        "id": "mod-12-lesson-14",
+        "number": 14,
+        "title": "Testes automatizados e Docker",
+        "explanation": "Testes automáticos evitam que um ajuste quebre outra parte do site; rode-os no CI. O Docker empacota a aplicação com tudo que ela precisa, para rodar igual em qualquer servidor.",
+        "codeExample": "# Dockerfile\nFROM node:20-alpine\nWORKDIR /app\nCOPY . .\nRUN npm ci\nCMD [\"node\", \"server.js\"]\n\n// teste (Jest)\ntest('soma', () => expect(soma(2, 3)).toBe(5));"
+      },
+      {
+        "id": "mod-12-lesson-15",
+        "number": 15,
+        "title": "React: componentes e estado",
+        "explanation": "O React divide a interface em componentes reutilizáveis. Props passam dados para baixo e o estado (useState) guarda o que muda. Quando o estado muda, o React redesenha só o necessário.",
+        "codeExample": "function Tarefas() {\n  const [lista, setLista] = useState([]);\n  return (\n    <ul>\n      {lista.map(t => <li key={t.id}>{t.titulo}</li>)}\n    </ul>\n  );\n}"
+      }
+    ],
+    "practicalExercise": "Adicione login e HTTPS a um dos seus projetos e versione tudo no GitHub. Pratique criar um repositório e fazer commits claros.",
+    "quizzes": [
+      {
+        "id": "q-12-1",
+        "question": "Qual defesa impede SQL Injection?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Consultas parametrizadas"
+          },
+          {
+            "key": "B",
+            "text": "Usar HTTPS"
+          },
+          {
+            "key": "C",
+            "text": "Usar cache"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-12-2",
+        "question": "O que o Service Worker permite?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Funcionar offline com cache"
+          },
+          {
+            "key": "B",
+            "text": "Criar bancos de dados"
+          },
+          {
+            "key": "C",
+            "text": "Compilar Java"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-12-3",
+        "question": "Qual código HTTP indica falta de login (não autenticado)?",
+        "options": [
+          {
+            "key": "A",
+            "text": "401"
+          },
+          {
+            "key": "B",
+            "text": "200"
+          },
+          {
+            "key": "C",
+            "text": "301"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-13",
+    "number": 13,
+    "title": "Projetos práticos",
+    "purpose": "Praticar é o que fixa o conteúdo. Cada projeto reúne várias tecnologias, vai para o portfólio e passa por Git, testes, CI e deploy. Faça pelo menos dois projetos completos antes de se candidatar a vagas.",
+    "whatYouWillLearn": [
+      "Portfólio responsivo",
+      "Lista de tarefas com API",
+      "Blog full-stack com login",
+      "Chat em tempo real como PWA"
+    ],
+    "quickExample": "Projeto → Git → Testes → CI → Deploy",
+    "lessons": [
+      {
+        "id": "mod-13-lesson-1",
+        "number": 1,
+        "title": "Portfólio responsivo (HTML, CSS, JS)",
+        "explanation": "Crie uma página com sobre, projetos e contato, usando Grid e Flexbox, modo escuro e formulário validado. Publique no GitHub Pages.",
+        "codeExample": "1. Estrutura semântica (header, main, footer)\n2. CSS responsivo com variáveis\n3. JS: menu e validação\n4. Deploy no GitHub Pages"
+      },
+      {
+        "id": "mod-13-lesson-2",
+        "number": 2,
+        "title": "Lista de tarefas com API (Node + SQL)",
+        "explanation": "Front-end em JS puro que usa fetch em uma API Express com banco SQLite ou PostgreSQL. Faça o CRUD completo, valide as entradas e use consultas parametrizadas.",
+        "codeExample": "Rotas:\nGET/POST /tarefas\nPUT/DELETE /tarefas/:id\nTabela: tarefas(id, titulo, feito)"
+      },
+      {
+        "id": "mod-13-lesson-3",
+        "number": 3,
+        "title": "Blog full-stack com login",
+        "explanation": "Back-end em Python, PHP, Java ou C#, banco relacional e front-end em TypeScript/React. Inclua cadastro com hash de senha, papéis (admin e leitor), proteção CSRF, escape de XSS, paginação e testes.",
+        "codeExample": "Tabelas: usuarios, posts, comentarios\nJOIN: posts + usuarios (autor)\nPapéis: admin cria, leitor comenta\nCI: testes no GitHub Actions"
+      },
+      {
+        "id": "mod-13-lesson-4",
+        "number": 4,
+        "title": "Chat em tempo real como PWA",
+        "explanation": "Use WebSockets (Node) para mensagens ao vivo, salve o histórico no banco, adicione manifest e Service Worker para instalar e abrir offline, e faça o deploy com HTTPS.",
+        "codeExample": "Servidor: Node + ws + banco\nCliente: JS + manifest.json + sw.js\nDeploy: Render/Railway com HTTPS"
+      },
+      {
+        "id": "mod-13-lesson-5",
+        "number": 5,
+        "title": "Passo a passo: API + front-end",
+        "explanation": "Monte o back-end primeiro, teste no navegador ou com curl e só depois faça o front-end consumir a API. Assim você encontra os erros mais cedo.",
+        "codeExample": "// server.js\nconst express = require('express');\nconst app = express();\napp.use(express.json());\nconst db = [];\napp.get('/api/tarefas', (q, r) => r.json(db));\napp.post('/api/tarefas', (q, r) => {\n  const t = { id: db.length + 1, titulo: String(q.body.titulo || '').slice(0, 100) };\n  db.push(t); r.status(201).json(t);\n});\napp.use(express.static('public'));\napp.listen(process.env.PORT || 3000);"
+      },
+      {
+        "id": "mod-13-lesson-6",
+        "number": 6,
+        "title": "Front-end e deploy",
+        "explanation": "No front-end, use fetch e textContent (evita XSS). Depois suba o código no GitHub, configure o deploy no Render ou Railway e confirme que o site abre em HTTPS.",
+        "codeExample": "// public/app.js\nasync function carregar() {\n  const r = await fetch('/api/tarefas');\n  const lista = document.querySelector('#lista');\n  lista.replaceChildren();\n  (await r.json()).forEach(t => {\n    const li = document.createElement('li');\n    li.textContent = t.titulo;\n    lista.append(li);\n  });\n}\ncarregar();"
+      }
+    ],
+    "practicalExercise": "Escolha o projeto 3 (blog) e publique-o com HTTPS e um repositório no GitHub. Documente o que você aprendeu.",
+    "quizzes": [
+      {
+        "id": "q-13-1",
+        "question": "Qual ordem é mais segura ao publicar?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Testes e CI antes do deploy"
+          },
+          {
+            "key": "B",
+            "text": "Deploy sem testes"
+          },
+          {
+            "key": "C",
+            "text": "Testar só em produção"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-14",
+    "number": 14,
+    "title": "Algoritmos e Estruturas de Dados",
+    "purpose": "A base da ciência da computação: como resolver problemas de forma eficiente. Estruturas de dados organizam a informação e algoritmos dizem o que fazer com ela; juntos definem se um site responde em milissegundos ou trava.",
+    "whatYouWillLearn": [
+      "Complexidade (Big O)",
+      "Busca e ordenação",
+      "Recursão, pilhas e filas",
+      "Hash, árvores e grafos"
+    ],
+    "quickExample": "for item in lista:        # O(n)\n    ...\nbusca_binaria(lista, x)   # O(log n)",
+    "lessons": [
+      {
+        "id": "mod-14-lesson-1",
+        "number": 1,
+        "title": "Complexidade e Big O",
+        "explanation": "O Big O mede como o tempo cresce com o tamanho da entrada (n), ignorando constantes. Os mais comuns: O(1) constante, O(log n) logarítmico, O(n) linear, O(n log n) e O(n²) quadrático. Com 1 milhão de itens, escolher O(n log n) em vez de O(n²) é a diferença entre segundos e dias.",
+        "codeExample": "def tem_repetido(v):      # O(n²)\n    for i in range(len(v)):\n        for j in range(i + 1, len(v)):\n            if v[i] == v[j]: return True\n    return False\n\ndef tem_repetido2(v):     # O(n)\n    return len(set(v)) != len(v)"
+      },
+      {
+        "id": "mod-14-lesson-2",
+        "number": 2,
+        "title": "Busca e ordenação",
+        "explanation": "A busca linear percorre tudo, O(n). A busca binária exige lista ordenada e descarta metade a cada passo, O(log n). Ordenações simples (bolha, inserção) são O(n²); merge sort e quick sort são O(n log n), e as linguagens já trazem versões prontas (sorted, Array.sort).",
+        "codeExample": "def busca_binaria(v, x):\n    lo, hi = 0, len(v) - 1\n    while lo <= hi:\n        m = (lo + hi) // 2\n        if v[m] == x: return m\n        if v[m] < x: lo = m + 1\n        else: hi = m - 1\n    return -1"
+      },
+      {
+        "id": "mod-14-lesson-3",
+        "number": 3,
+        "title": "Recursão e pilha de chamadas",
+        "explanation": "Recursão é uma função que chama a si mesma, com um caso base que a interrompe. Cada chamada ocupa espaço na pilha, e sem caso base ocorre stack overflow. Divisão e conquista (merge sort) e percorrer árvores usam recursão; a memoização evita recalcular.",
+        "codeExample": "def fatorial(n):\n    if n <= 1: return 1     # caso base\n    return n * fatorial(n - 1)\n\ndef fib(n, memo={}):         # memoização: O(n)\n    if n < 2: return n\n    if n not in memo: memo[n] = fib(n-1) + fib(n-2)\n    return memo[n]"
+      },
+      {
+        "id": "mod-14-lesson-4",
+        "number": 4,
+        "title": "Pilhas, filas e listas ligadas",
+        "explanation": "Pilha (stack) é LIFO: o último a entrar é o primeiro a sair; o botão voltar do navegador usa uma. Fila (queue) é FIFO: o primeiro a entrar é o primeiro a sair, como as filas de tarefas. A lista ligada guarda nós com ponteiro para o próximo: inserir no início é O(1), mas acessar o item i é O(n).",
+        "codeExample": "from collections import deque\npilha = []; pilha.append(1); pilha.pop()\nfila = deque(); fila.append(1); fila.popleft()\n\nclass No:\n    def __init__(self, v, prox=None):\n        self.v, self.prox = v, prox"
+      },
+      {
+        "id": "mod-14-lesson-5",
+        "number": 5,
+        "title": "Hash, árvores e grafos",
+        "explanation": "A tabela hash (dict, Map) guarda pares chave-valor com busca média O(1). A árvore binária de busca mantém os dados ordenados, com busca O(log n) quando balanceada, e é a base dos índices de banco. Grafos modelam redes (amigos, mapas) e são percorridos por BFS (por camadas, caminho mais curto) e DFS (em profundidade).",
+        "codeExample": "from collections import deque\ndef bfs(g, ini):\n    vistos, fila = {ini}, deque([ini])\n    while fila:\n        u = fila.popleft()\n        for v in g[u]:\n            if v not in vistos:\n                vistos.add(v); fila.append(v)\n    return vistos"
+      }
+    ],
+    "practicalExercise": "Implemente busca binária e ordenação por inserção e compare os tempos com 100 mil números. Use o console do navegador ou um arquivo Python/JS.",
+    "quizzes": [
+      {
+        "id": "q-14-1",
+        "question": "Qual é a complexidade da busca binária?",
+        "options": [
+          {
+            "key": "A",
+            "text": "O(n)"
+          },
+          {
+            "key": "B",
+            "text": "O(log n)"
+          },
+          {
+            "key": "C",
+            "text": "O(n²)"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-14-2",
+        "question": "Qual estrutura segue a regra LIFO?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Fila"
+          },
+          {
+            "key": "B",
+            "text": "Pilha"
+          },
+          {
+            "key": "C",
+            "text": "Tabela hash"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-15",
+    "number": 15,
+    "title": "Redes e Sistemas Operacionais",
+    "purpose": "Entender como os computadores conversam e como o sistema operacional executa os programas explica por que um site fica lento, cai ou é inseguro. Base importante para qualquer programador.",
+    "whatYouWillLearn": [
+      "Modelo OSI e TCP/IP",
+      "IP, DNS e portas",
+      "Processos e threads",
+      "Memória e cache"
+    ],
+    "quickExample": "Aplicação (HTTP) → Transporte (TCP) → Internet (IP) → Enlace (Wi-Fi/cabo)",
+    "lessons": [
+      {
+        "id": "mod-15-lesson-1",
+        "number": 1,
+        "title": "Camadas: OSI e TCP/IP",
+        "explanation": "A comunicação é dividida em camadas, cada uma com uma função: aplicação (HTTP, DNS), transporte (TCP, UDP), internet (IP) e enlace/física (Wi-Fi, cabo). Cada camada conversa só com a vizinha, o que permite trocar uma tecnologia sem refazer o resto.",
+        "codeExample": "HTTP  → o que pedir (aplicação)\nTCP   → entrega confiável e em ordem (transporte)\nIP    → endereço e rota (internet)\nWi-Fi → sinal no meio físico (enlace)"
+      },
+      {
+        "id": "mod-15-lesson-2",
+        "number": 2,
+        "title": "IP, DNS, portas e TCP vs UDP",
+        "explanation": "O IP identifica a máquina (IPv4 ou IPv6), o DNS traduz nomes em IPs, e as portas identificam o serviço (80 HTTP, 443 HTTPS, 22 SSH, 5432 PostgreSQL). O TCP garante entrega e ordem com um handshake de 3 vias; o UDP é mais rápido e sem garantias (vídeo, jogos, DNS).",
+        "codeExample": "$ nslookup exemplo.com\n-> 93.184.216.34\n$ curl -I https://exemplo.com\nHTTP/2 200"
+      },
+      {
+        "id": "mod-15-lesson-3",
+        "number": 3,
+        "title": "Processos, threads e concorrência",
+        "explanation": "Um processo é um programa em execução, com memória própria. Threads são fluxos dentro do processo e compartilham memória. O escalonador do SO divide o tempo da CPU entre eles. Várias threads mexendo no mesmo dado causam condição de corrida; o lock (mutex) resolve, mas pode gerar deadlock.",
+        "codeExample": "import threading\ncont = 0; lock = threading.Lock()\ndef inc():\n    global cont\n    for _ in range(100000):\n        with lock: cont += 1\nts = [threading.Thread(target=inc) for _ in range(4)]\n[t.start() for t in ts]; [t.join() for t in ts]"
+      },
+      {
+        "id": "mod-15-lesson-4",
+        "number": 4,
+        "title": "Memória, arquivos e cache",
+        "explanation": "A memória é uma hierarquia: registradores, cache da CPU, RAM, SSD e disco, do mais rápido e caro ao mais lento e barato. A memória virtual faz cada processo achar que tem a RAM toda. O cache de aplicação (Redis, CDN) guarda respostas prontas e costuma ser a otimização mais eficaz para sites.",
+        "codeExample": "Cache-Control: public, max-age=3600   # navegador/CDN\nREDIS: SET cursos '[...]' EX 60       # aplicação\nlatência: RAM ~100ns, SSD ~100µs, rede ~100ms"
+      }
+    ],
+    "practicalExercise": "Use ping, nslookup e traceroute (tracert no Windows) em um site e descreva o caminho que o pedido faz. Anote os resultados.",
+    "quizzes": [
+      {
+        "id": "q-15-1",
+        "question": "Qual é a porta padrão do HTTPS?",
+        "options": [
+          {
+            "key": "A",
+            "text": "80"
+          },
+          {
+            "key": "B",
+            "text": "443"
+          },
+          {
+            "key": "C",
+            "text": "22"
+          }
+        ],
+        "correctAnswer": "B"
+      },
+      {
+        "id": "q-15-2",
+        "question": "O que o DNS faz?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Traduz nomes em IPs"
+          },
+          {
+            "key": "B",
+            "text": "Criptografa dados"
+          },
+          {
+            "key": "C",
+            "text": "Guarda cookies"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-16",
+    "number": 16,
+    "title": "Banco de Dados (teoria)",
+    "purpose": "A modelagem e a teoria por trás do SQL: como projetar tabelas sem redundância, garantir consistência e escolher entre banco relacional e NoSQL.",
+    "whatYouWillLearn": [
+      "Modelo entidade-relacionamento",
+      "Normalização (1FN a 3FN)",
+      "ACID e isolamento",
+      "SQL x NoSQL"
+    ],
+    "quickExample": "Aluno (1) ──< Matrícula >── (N) Curso",
+    "lessons": [
+      {
+        "id": "mod-16-lesson-1",
+        "number": 1,
+        "title": "Modelagem MER",
+        "explanation": "O MER descreve entidades (Aluno, Curso), atributos e relacionamentos 1:1, 1:N e N:N. O relacionamento N:N vira uma tabela associativa com duas chaves estrangeiras, como as matrículas entre alunos e cursos.",
+        "codeExample": "CREATE TABLE matriculas (\n  aluno_id INT REFERENCES alunos(id),\n  curso_id INT REFERENCES cursos(id),\n  PRIMARY KEY (aluno_id, curso_id)\n);"
+      },
+      {
+        "id": "mod-16-lesson-2",
+        "number": 2,
+        "title": "Normalização",
+        "explanation": "1FN: valores atômicos, sem listas na célula. 2FN: nenhum atributo depende de só parte da chave. 3FN: nenhum atributo depende de outro atributo que não seja chave. O objetivo é evitar redundância e anomalias; às vezes, por desempenho, desnormaliza-se de propósito.",
+        "codeExample": "-- Ruim (viola a 1FN e repete dados)\npedidos(id, cliente, cidade, itens)  -- 'pão, leite'\n-- Bom\nclientes(id, nome, cidade_id)\npedidos(id, cliente_id)\nitens_pedido(pedido_id, produto_id, qtd)"
+      },
+      {
+        "id": "mod-16-lesson-3",
+        "number": 3,
+        "title": "ACID e níveis de isolamento",
+        "explanation": "ACID: Atomicidade (tudo ou nada), Consistência (regras sempre válidas), Isolamento (transações simultâneas não se atrapalham) e Durabilidade (o confirmado não se perde). Níveis de isolamento mais altos evitam leituras sujas e fantasmas, mas reduzem a concorrência.",
+        "codeExample": "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;\nBEGIN;\n  SELECT saldo FROM contas WHERE id = 1 FOR UPDATE;\n  UPDATE contas SET saldo = saldo - 50 WHERE id = 1;\nCOMMIT;"
+      },
+      {
+        "id": "mod-16-lesson-4",
+        "number": 4,
+        "title": "SQL x NoSQL",
+        "explanation": "Bancos relacionais (PostgreSQL, MySQL) são ótimos para dados estruturados e transações. O NoSQL se divide em documentos (MongoDB), chave-valor (Redis), colunas (Cassandra) e grafos (Neo4j), e prioriza escala e flexibilidade. O teorema CAP diz que, com falha de rede, é preciso escolher entre consistência e disponibilidade.",
+        "codeExample": "// MongoDB: documento\n{ _id: 1, nome: 'Ana', cursos: ['HTML', 'SQL'] }\n// Redis: chave-valor\nSET sessao:42 '{\"user\":1}' EX 900"
+      }
+    ],
+    "practicalExercise": "Modele o banco de uma escola online com MER, normalize até a 3FN e escreva as tabelas em SQL.",
+    "quizzes": [
+      {
+        "id": "q-16-1",
+        "question": "Em qual forma normal os valores devem ser atômicos?",
+        "options": [
+          {
+            "key": "A",
+            "text": "1FN"
+          },
+          {
+            "key": "B",
+            "text": "3FN"
+          },
+          {
+            "key": "C",
+            "text": "Nenhuma"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-16-2",
+        "question": "O que significa o A do ACID?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Atomicidade"
+          },
+          {
+            "key": "B",
+            "text": "Autenticação"
+          },
+          {
+            "key": "C",
+            "text": "Arquitetura"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-17",
+    "number": 17,
+    "title": "Engenharia de Software",
+    "purpose": "Como transformar código em produto: levantar requisitos, modelar, escolher padrões e arquitetura, testar e trabalhar em equipe. É o que separa um projeto de estudo de um sistema que se vende e se mantém.",
+    "whatYouWillLearn": [
+      "Requisitos, UML e ágil",
+      "SOLID e padrões de projeto",
+      "Testes e qualidade",
+      "Arquitetura e escalabilidade"
+    ],
+    "quickExample": "Requisitos → Modelagem → Código → Testes → Deploy → Monitoramento",
+    "lessons": [
+      {
+        "id": "mod-17-lesson-1",
+        "number": 1,
+        "title": "Requisitos, UML e metodologias ágeis",
+        "explanation": "Requisitos funcionais dizem o que o sistema faz, e os não funcionais dizem como (desempenho, segurança). Histórias de usuário e UML (casos de uso, classes, sequência) comunicam isso. No Scrum, o trabalho vai em sprints curtas, com planejamento, daily, review e retrospectiva.",
+        "codeExample": "História: Como aluno, quero pagar com Pix\n         para liberar o curso na hora.\nCritérios: QR em até 3s; acesso liberado após confirmação."
+      },
+      {
+        "id": "mod-17-lesson-2",
+        "number": 2,
+        "title": "SOLID",
+        "explanation": "S: uma classe, uma responsabilidade. O: aberta para extensão, fechada para modificação. L: subtipos substituem seus tipos base. I: interfaces pequenas e específicas. D: dependa de abstrações, não de implementações. Seguir o SOLID deixa o código mais fácil de testar e evoluir.",
+        "codeExample": "class Pedido:                      # S: só calcula\n    def total(self): ...\nclass Notificador(Protocol):       # D: abstração\n    def enviar(self, msg): ...\nclass Loja:\n    def __init__(self, n: Notificador): self.n = n"
+      },
+      {
+        "id": "mod-17-lesson-3",
+        "number": 3,
+        "title": "Padrões de projeto",
+        "explanation": "Padrões são soluções conhecidas para problemas comuns. Singleton: uma instância única. Factory: cria objetos sem expor a classe concreta. Observer: avisa os interessados quando algo muda (eventos). Strategy: troca algoritmos em tempo de execução. MVC e Repository organizam camadas.",
+        "codeExample": "class Frete:                       # Strategy\n    def __init__(self, estrategia): self.e = estrategia\n    def valor(self, peso): return self.e(peso)\nsedex = lambda p: 20 + p * 3\nprint(Frete(sedex).valor(2))"
+      },
+      {
+        "id": "mod-17-lesson-4",
+        "number": 4,
+        "title": "Testes e qualidade",
+        "explanation": "A pirâmide de testes tem muitos testes unitários (rápidos), alguns de integração e poucos ponta a ponta. O TDD escreve o teste antes do código. Cobertura, revisão de código, linters e CI mantêm a qualidade e evitam regressões.",
+        "codeExample": "def desconto(p, pct): return p * (1 - pct / 100)\n\ndef test_desconto():\n    assert desconto(100, 10) == 90\n    assert desconto(50, 0) == 50"
+      },
+      {
+        "id": "mod-17-lesson-5",
+        "number": 5,
+        "title": "Arquitetura e escalabilidade",
+        "explanation": "O monolito é simples de começar e publicar; microsserviços separam o sistema em serviços independentes, ganhando escala e autonomia, mas com mais complexidade. Para escalar: balanceador de carga, cache, filas de mensagens (RabbitMQ, Kafka), réplicas de leitura no banco, CDN e observabilidade (logs, métricas, alertas).",
+        "codeExample": "Usuário → CDN → Balanceador → [App 1 | App 2 | App 3]\n                                    ↓\n                          Cache (Redis) + Fila\n                                    ↓\n                       Banco principal → Réplicas"
+      }
+    ],
+    "practicalExercise": "Escreva 5 histórias de usuário e um diagrama de classes simples para uma loja virtual. Não precisa ser perfeito — o importante é praticar o pensamento.",
+    "quizzes": [
+      {
+        "id": "q-17-1",
+        "question": "Qual princípio SOLID diz uma classe, uma responsabilidade?",
+        "options": [
+          {
+            "key": "A",
+            "text": "S"
+          },
+          {
+            "key": "B",
+            "text": "O"
+          },
+          {
+            "key": "C",
+            "text": "D"
+          }
+        ],
+        "correctAnswer": "A"
+      },
+      {
+        "id": "q-17-2",
+        "question": "Qual é a base da pirâmide de testes?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Testes unitários"
+          },
+          {
+            "key": "B",
+            "text": "Testes manuais"
+          },
+          {
+            "key": "C",
+            "text": "Testes de carga"
+          }
+        ],
+        "correctAnswer": "A"
+      }
+    ]
+  },
+  {
+    "id": "mod-18",
+    "number": 18,
+    "title": "Instalar o App (PWA)",
+    "purpose": "Este curso pode ser instalado como aplicativo no celular e no computador. Assim você estuda offline, tem ícone na tela inicial e a experiência fica mais parecida com um app nativo. Abaixo estão os passos detalhados para cada sistema.",
+    "whatYouWillLearn": [
+      "O que é PWA",
+      "Android (Chrome)",
+      "iOS (Safari)",
+      "Windows (Chrome / Edge)",
+      "macOS (Chrome / Safari)",
+      "Linux (Chrome / Firefox)",
+      "Firefox em geral"
+    ],
+    "quickExample": "PWA = site que se comporta como app\n(HTTPS + manifest + service worker)",
+    "lessons": [
+      {
+        "id": "mod-18-lesson-1",
+        "number": 1,
+        "title": "O que é PWA e por que usar",
+        "explanation": "PWA (Progressive Web App) é um site que pode ser instalado, funciona offline (com cache) e aparece como app. Precisa ser servido em HTTPS (ou localhost). Depois de instalado, o progresso continua salvo no mesmo dispositivo.",
+        "codeExample": "Benefícios:\n• Ícone na tela inicial / menu iniciar\n• Abre em janela própria\n• Funciona parcial ou totalmente offline\n• Não precisa de loja de apps"
+      },
+      {
+        "id": "mod-18-lesson-2",
+        "number": 2,
+        "title": "Android — Google Chrome",
+        "explanation": "1. Abra o curso no Chrome.\n2. Toque no menu (⋮) no canto superior direito.\n3. Escolha “Instalar app” ou “Adicionar à tela inicial”.\n4. Confirme. O ícone aparece na tela inicial.\nSe a opção não aparecer, use “Adicionar à tela inicial” manualmente.",
+        "codeExample": "Chrome Android → ⋮ → Instalar app\nou Adicionar à tela inicial"
+      },
+      {
+        "id": "mod-18-lesson-3",
+        "number": 3,
+        "title": "iPhone / iPad — Safari",
+        "explanation": "No iOS o Chrome não instala PWA da mesma forma. Use o Safari:\n1. Abra o curso no Safari.\n2. Toque no botão de Compartilhar (quadrado com seta para cima).\n3. Role e toque em “Adicionar à Tela de Início”.\n4. Confirme o nome e toque em Adicionar.\nO app abre em tela cheia, sem a barra do Safari.",
+        "codeExample": "Safari iOS → Compartilhar → Adicionar à Tela de Início"
+      },
+      {
+        "id": "mod-18-lesson-4",
+        "number": 4,
+        "title": "Windows — Chrome ou Edge",
+        "explanation": "1. Abra o curso no Chrome ou no Microsoft Edge.\n2. Na barra de endereço, clique no ícone de instalação (⊕ ou computador com seta) se aparecer.\n3. Ou vá em Menu (⋮) → “Instalar Curso Web Completo…” / “Aplicativos” → “Instalar este site como um aplicativo”.\n4. Confirme. O app aparece no Menu Iniciar e pode ser fixado na barra de tarefas.",
+        "codeExample": "Chrome/Edge Windows → ícone de instalar na barra\nou ⋮ → Instalar app"
+      },
+      {
+        "id": "mod-18-lesson-5",
+        "number": 5,
+        "title": "macOS — Chrome ou Safari",
+        "explanation": "Chrome:\n1. Abra o curso.\n2. Menu ⋮ → “Instalar Curso Web…” ou ícone de instalação na barra.\n3. Confirme. O app vai para a pasta Aplicativos e o Launchpad.\n\nSafari (macOS Sonoma+):\n1. Arquivo → “Adicionar ao Dock” (ou compartilhe e adicione).\n2. O site vira um app no Dock.",
+        "codeExample": "Chrome Mac → ⋮ → Instalar\nSafari → Arquivo → Adicionar ao Dock"
+      },
+      {
+        "id": "mod-18-lesson-6",
+        "number": 6,
+        "title": "Linux — Chrome e Firefox",
+        "explanation": "Chrome / Chromium:\n1. Abra o curso.\n2. Menu ⋮ → “Instalar Curso Web Completo…” ou ícone na barra de endereço.\n3. Confirme. O atalho aparece no menu de aplicativos.\n\nFirefox:\n1. Abra o curso.\n2. Clique no ícone de “Instalar” na barra de endereço (se disponível) ou use o menu → “Instalar site como aplicativo” (versões recentes).\n3. Em algumas distros o Firefox cria um atalho .desktop.",
+        "codeExample": "Chrome Linux → ⋮ → Instalar app\nFirefox → ícone de instalação ou menu"
+      },
+      {
+        "id": "mod-18-lesson-7",
+        "number": 7,
+        "title": "Dicas gerais e solução de problemas",
+        "explanation": "• A instalação só funciona em HTTPS (ou localhost).\n• Se o botão “Instalar” não aparecer, use a opção manual “Adicionar à tela inicial” / “Instalar site como aplicativo”.\n• O progresso fica salvo no navegador daquele dispositivo. Use o código de recuperação se precisar reabrir no mesmo aparelho após limpar dados.\n• No iOS, atualizações do PWA às vezes exigem remover o ícone e adicionar de novo.",
+        "codeExample": "Problema comum: sem HTTPS → PWA não instala\nSolução: hospede em Netlify, Vercel, GitHub Pages ou similar"
+      }
+    ],
+    "practicalExercise": "Instale o curso no seu dispositivo principal e teste abrir sem internet (depois do primeiro carregamento).",
+    "quizzes": [
+      {
+        "id": "q-18-1",
+        "question": "Qual navegador deve ser usado no iPhone para instalar o PWA corretamente?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Chrome"
+          },
+          {
+            "key": "B",
+            "text": "Safari"
+          },
+          {
+            "key": "C",
+            "text": "Firefox"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  },
+  {
+    "id": "mod-19",
+    "number": 19,
+    "title": "Roteiro de estudo",
+    "purpose": "Uma ordem de estudo que evita travar: primeiro o que aparece na tela, depois a lógica, depois o servidor e os dados. Estude com constância (mesmo 40–60 minutos por dia) e faça os exercícios.",
+    "whatYouWillLearn": [
+      "1. HTML e CSS (2 a 4 semanas)",
+      "2. JavaScript e DOM (4 a 6 semanas)",
+      "3. Git e GitHub",
+      "4. Python ou PHP + SQL (6 a 8 semanas)",
+      "5. TypeScript e um framework (React)",
+      "6. Publicar projetos: portfólio, lista de tarefas, blog com login, loja"
+    ],
+    "quickExample": "HTML → CSS → JavaScript → Git\n   → Python/PHP → SQL → TypeScript → React",
+    "lessons": [
+      {
+        "id": "mod-19-lesson-1",
+        "number": 1,
+        "title": "Plano de 6 meses",
+        "explanation": "Estude 1 hora por dia e faça projetos em vez de só assistir aulas. Meses 1 e 2: HTML, CSS e JS. Mês 3: Git e GitHub. Meses 4 e 5: Python ou PHP com SQL. Mês 6: TypeScript, React e um projeto final publicado.",
+        "codeExample": "Mês 1-2: HTML + CSS + JS\nMês 3: Git/GitHub\nMês 4-5: Python/PHP + SQL\nMês 6: TypeScript + projeto final"
+      },
+      {
+        "id": "mod-19-lesson-2",
+        "number": 2,
+        "title": "Projetos para o portfólio",
+        "explanation": "Projetos mostram o que você sabe fazer. Comece simples e aumente a dificuldade aos poucos. Qualidade e clareza valem mais que quantidade.",
+        "codeExample": "1. Página pessoal (HTML/CSS)\n2. Lista de tarefas (JS)\n3. Blog com login (Python/PHP + SQL)\n4. Loja com carrinho (tudo junto)"
+      }
+    ],
+    "practicalExercise": "Escolha um projeto da lista e publique-o online, mesmo simples. O importante é terminar e colocar no ar.",
+    "quizzes": [
+      {
+        "id": "q-19-1",
+        "question": "O que ajuda mais a aprender?",
+        "options": [
+          {
+            "key": "A",
+            "text": "Só assistir aulas"
+          },
+          {
+            "key": "B",
+            "text": "Fazer projetos"
+          },
+          {
+            "key": "C",
+            "text": "Decorar tags"
+          }
+        ],
+        "correctAnswer": "B"
+      }
+    ]
+  }
+]

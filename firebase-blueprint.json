@@ -1,0 +1,96 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile with learning progress and preferences",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "User unique identifier matching auth UID",
+          "maxLength": 128
+        },
+        "name": {
+          "type": "string",
+          "description": "User display name",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 200
+        },
+        "avatar": {
+          "type": "string",
+          "description": "Avatar emoji character",
+          "maxLength": 16
+        },
+        "originalKey": {
+          "type": "string",
+          "description": "Access key used to activate course",
+          "maxLength": 64
+        },
+        "xp": {
+          "type": "number",
+          "description": "Total accumulated experience points"
+        },
+        "streak": {
+          "type": "number",
+          "description": "Consecutive active days"
+        },
+        "lastActiveDate": {
+          "type": "string",
+          "description": "Date of last activity (YYYY-MM-DD)",
+          "maxLength": 32
+        },
+        "gems": {
+          "type": "number",
+          "description": "Gems balance"
+        },
+        "hearts": {
+          "type": "number",
+          "description": "Current lives balance"
+        },
+        "maxHearts": {
+          "type": "number",
+          "description": "Maximum lives limit"
+        },
+        "currentModuleId": {
+          "type": "string",
+          "description": "Currently active module ID",
+          "maxLength": 64
+        },
+        "selectedLanguageId": {
+          "type": "string",
+          "description": "Chosen language track module ID",
+          "maxLength": 64
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "Admin status flag"
+        },
+        "isGuest": {
+          "type": "boolean",
+          "description": "Guest account flag"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp",
+          "maxLength": 64
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Last update timestamp",
+          "maxLength": 64
+        }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Stores user learning profiles and progress"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix DevDuo - Curso Web Completo",
+  "description": "Aprenda desenvolvimento web e programação de sites no estilo Duolingo com 19 módulos completos, quizzes interativos, PWA offline e tutor IA Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
