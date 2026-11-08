@@ -42,9 +42,11 @@ export const DuolingoHeader: React.FC<DuolingoHeaderProps> = ({
       <div className="max-w-5xl mx-auto px-2 sm:px-4 h-14 sm:h-16 flex items-center justify-between gap-1 sm:gap-3">
         {/* Left: Brand and Language Selector */}
         <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#4f46e5] to-[#06b6d4] flex items-center justify-center shadow-[0_2px_0_#3730a3] shrink-0">
-            <span className="text-base sm:text-xl">🦊</span>
-          </div>
+          <img
+            src="./icon-192.png"
+            alt="DevDuo Logo"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl object-cover shadow-[0_2px_0_#1e1b4b] border border-indigo-900/30 shrink-0 ring-1 ring-white/20"
+          />
 
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1">

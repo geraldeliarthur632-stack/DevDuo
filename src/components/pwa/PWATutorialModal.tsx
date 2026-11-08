@@ -38,8 +38,8 @@ export const PWATutorialModal: React.FC<PWATutorialModalProps> = ({
         {/* Header */}
         <div className="p-5 sm:p-6 bg-gradient-to-r from-indigo-600 via-indigo-700 to-cyan-600 text-white flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30">
-              <Smartphone className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 overflow-hidden shadow-sm shrink-0">
+              <img src="./icon-192.png" alt="DevDuo Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <h3 className="font-black text-lg sm:text-xl tracking-tight">

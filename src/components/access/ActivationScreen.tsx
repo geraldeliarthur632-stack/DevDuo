@@ -263,11 +263,16 @@ export const ActivationScreen: React.FC<ActivationScreenProps> = ({
     <div className="min-h-screen bg-[#f7f7f7] flex flex-col items-center justify-center p-3 sm:p-6">
       {/* Top Header Bar */}
       <div className="w-full max-w-md flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-2xl bg-[#58cc02] flex items-center justify-center shadow-[0_3px_0_#46a302]">
-            <KeyRound className="w-5 h-5 text-white" />
+        <div className="flex items-center gap-2.5">
+          <img
+            src="./icon-192.png"
+            alt="DevDuo Logo"
+            className="w-10 h-10 rounded-2xl object-cover shadow-[0_3px_0_#1e1b4b] border border-indigo-900/30 ring-1 ring-white/20 shrink-0"
+          />
+          <div>
+            <span className="font-extrabold text-xl text-[#1e1b4b] tracking-tight block leading-tight">DevDuo</span>
+            <span className="text-[10px] font-bold text-gray-400 block -mt-0.5">Curso Web Completo</span>
           </div>
-          <span className="font-extrabold text-xl text-[#1e1b4b] tracking-tight">DevDuo</span>
         </div>
 
         <button
@@ -281,11 +286,26 @@ export const ActivationScreen: React.FC<ActivationScreenProps> = ({
 
       {/* Main Container Card */}
       <div className="w-full max-w-md bg-white rounded-3xl p-5 sm:p-7 shadow-xl border-2 border-gray-100 flex flex-col items-center text-center">
+        {/* Official Brand Logo */}
+        <div className="mb-3 flex flex-col items-center">
+          <div className="relative group">
+            <img
+              src="./logo.png"
+              alt="DevDuo Logo"
+              className="w-20 h-20 rounded-2xl object-cover shadow-lg border-2 border-indigo-950/20 group-hover:scale-105 transition-all duration-300"
+            />
+            <span className="absolute -bottom-1 -right-1 flex h-4 w-4">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-4 w-4 bg-emerald-500 border-2 border-white"></span>
+            </span>
+          </div>
+        </div>
+
         {/* Mascot */}
-        <div className="mb-2 mt-1">
+        <div className="mb-2">
           <DevDuoMascot
             mood={errorMsg ? 'sad' : successMsg ? 'excited' : 'cheering'}
-            size="md"
+            size="sm"
             speechBubble={
               errorMsg
                 ? 'Ops, confira os dados digitados!'

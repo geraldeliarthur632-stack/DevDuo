@@ -40,6 +40,27 @@ Se você preferir publicar através do comando direto no terminal:
 
 ---
 
+## 🌐 Configuração do Domínio Personalizado (`devduo.com`)
+
+O projeto já contém o arquivo `CNAME` configurado com `devduo.com`.
+
+### No GitHub:
+1. No seu repositório no GitHub, acesse **Settings** > **Pages**.
+2. No campo **Custom domain**, digite: `devduo.com` e clique em **Save**.
+3. Marque a opção **Enforce HTTPS** (para ativar SSL/HTTPS gratuito).
+
+### No seu provedor de DNS (Registro.br, Cloudflare, GoDaddy, Hostinger, etc.):
+Configure os apontamentos DNS:
+* **Tipo A** (Host: `@` ou `devduo.com`):
+  * `185.199.108.153`
+  * `185.199.109.153`
+  * `185.199.110.153`
+  * `185.199.111.153`
+* **Tipo CNAME** (Host: `www`):
+  * `<seu-usuario>.github.io.`
+
+---
+
 ## 🛠️ Comandos Disponíveis
 
 * `npm run dev`: Inicia o servidor de desenvolvimento local na porta 3000.
